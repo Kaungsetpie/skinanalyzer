@@ -1,0 +1,202 @@
+{
+  "app": {
+    "name": "Skin Consult"
+  },
+  "user": {
+    "displayName": "Alex",
+    "avatarUri": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
+  },
+  "navigation": {
+    "tabs": [
+      { "id": "home", "label": "Home", "icon": "home-outline", "iconActive": "home" },
+      { "id": "analysis", "label": "Analysis", "icon": "camera-outline", "iconActive": "camera" },
+      { "id": "profile", "label": "Profile", "icon": "account-outline", "iconActive": "account" }
+    ]
+  },
+  "analysisCapture": {
+    "heroTitle": "Editorial Clinical Precision.",
+    "heroAccent": "Precision.",
+    "heroSubtitle": "Upload or take a photo for analysis. Our AI-driven engine provides expert insights in seconds.",
+    "liveStatusLabel": "LIVE STATUS",
+    "liveStatusDetail": "Skin Condition Detected: Mild Redness",
+    "conditionShort": "Mild Redness",
+    "captureTitle": "Ready for Capture",
+    "captureHint": "Ensure your face is well-lit and centered for the most accurate clinical diagnosis.",
+    "optimalLight": {
+      "title": "Optimal Light",
+      "description": "Analysis quality is 98% based on current environment.",
+      "qualityPercent": 98
+    },
+    "lastSession": {
+      "title": "Last Session",
+      "description": "Hydration improved by 12% since Tuesday.",
+      "hydrationDeltaPercent": 12,
+      "sinceLabel": "Tuesday"
+    },
+    "analyzing": {
+      "title": "Analyzing skin...",
+      "description": "Our algorithms are cross-referencing your image against 50,000+ dermatological patterns.",
+      "ctaLabel": "View Full Report"
+    }
+  },
+  "home": {
+    "badge": "AI-POWERED DERMATOLOGY",
+    "headline": "Your Path to Radiant Skin Starts Here",
+    "headlineAccent": "Starts Here",
+    "subtext": "Clinical-grade AI analysis for redness, oiliness, and texture—personalized routines in minutes.",
+    "primaryCta": "Start Consultation",
+    "secondaryCta": "Watch How It Works",
+    "liveAnalysis": {
+      "tag": "NORMAL",
+      "title": "Live Analysis",
+      "scanningLabel": "SCANNING",
+      "hydrationLabel": "Hydration Level",
+      "hydrationPercent": 68,
+      "imageUri": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop"
+    },
+    "userStats": {
+      "trustedLabel": "Trusted by 10k+ users",
+      "count": "10k+",
+      "avatars": [
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop"
+      ]
+    },
+    "features": [
+      {
+        "id": "deep-pore",
+        "title": "Deep Pore Analysis",
+        "description": "Microscopic-level mapping of pores and texture for a clearer baseline.",
+        "iconName": "microscope",
+        "variant": "muted",
+        "footerTrusted": true
+      },
+      {
+        "id": "instant-scan",
+        "title": "Instant Scan",
+        "description": "Capture a selfie and receive a structured skin readout in seconds.",
+        "iconName": "camera",
+        "variant": "primary",
+        "demoLabel": "Try Demo"
+      },
+      {
+        "id": "oil-mapping",
+        "title": "Oil Mapping",
+        "description": "Visualize sebum-prone zones to balance your routine.",
+        "iconName": "water",
+        "variant": "light"
+      },
+      {
+        "id": "condition-alert",
+        "title": "Condition Alert",
+        "description": "Early flags for redness and sensitivity patterns.",
+        "iconName": "shield-check",
+        "variant": "light"
+      },
+      {
+        "id": "progress",
+        "title": "Progress Tracking",
+        "description": "Trend hydration, texture, and clarity over time.",
+        "iconName": "chart-timeline-variant",
+        "variant": "light"
+      }
+    ],
+    "productsSection": {
+      "title": "Expertly Curated Just For You",
+      "subtext": "Pairs with your latest scan—update anytime after a new analysis."
+    },
+    "products": [
+      {
+        "id": "serum-1",
+        "name": "Hyaluronic Glow Serum",
+        "recommendationText": "Recommended for: Dehydration & Fine lines",
+        "shopLabel": "Shop Now",
+        "imageUri": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop"
+      },
+      {
+        "id": "cream-1",
+        "name": "Ceramide Barrier Cream",
+        "recommendationText": "Recommended for: Redness & Sensitivity",
+        "shopLabel": "Shop Now",
+        "imageUri": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop"
+      }
+    ],
+    "footerCard": {
+      "title": "Science-backed routines",
+      "subtitle": "Dermatology-inspired models trained on diverse skin tones."
+    }
+  },
+  "report": {
+    "analysis": {
+      "label": "ANALYSIS REPORT",
+      "headline": "Skin Analysis: Oily & Redness Detected",
+      "summary": "Elevated sebum activity was noted across the T-zone with mild inflammatory tone along the cheeks. Patterns are consistent with combination skin under environmental stress.",
+      "scorePercent": 82,
+      "scoreLabel": "Skin Score",
+      "tags": [
+        { "id": "tzone", "label": "Oily T-Zone", "icon": "grid-large" },
+        { "id": "redness", "label": "Mild Redness", "icon": "alert-circle-outline" }
+      ]
+    },
+    "filters": {
+      "priceLabel": "Price Range",
+      "priceValue": "$10 - $30",
+      "originLabel": "Made In",
+      "originValue": "Korea",
+      "veganLabel": "Vegan Choices",
+      "veganOn": true,
+      "matchedCount": 12,
+      "activeChips": [
+        { "id": "chip-price", "label": "$10 - $30" },
+        { "id": "chip-korea", "label": "Korea" }
+      ]
+    },
+    "products": [
+      {
+        "id": "p1",
+        "name": "Calming Green Tea Serum",
+        "price": "$24.00",
+        "origin": "KOREA",
+        "badges": ["VEGAN"],
+        "description": "Soothing antioxidants to reduce visible redness while supporting barrier recovery.",
+        "imageUri": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop",
+        "ctaLabel": "Add to Routine"
+      },
+      {
+        "id": "p2",
+        "name": "Oil-Control Gel Cleanser",
+        "price": "$32.00",
+        "origin": "FRANCE",
+        "badges": ["DERM-TESTED"],
+        "description": "Gentle surfactants lift excess sebum without stripping sensitive areas.",
+        "imageUri": "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=400&h=400&fit=crop",
+        "ctaLabel": "Add to Routine"
+      },
+      {
+        "id": "p3",
+        "name": "Zinc & Niacinamide Matte",
+        "price": "$18.00",
+        "origin": "USA",
+        "badges": ["VEGAN"],
+        "description": "Balances shine and refines the look of pores with daily-friendly actives.",
+        "imageUri": "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop",
+        "ctaLabel": "Add to Routine"
+      }
+    ],
+    "medicalNote": {
+      "title": "A Note on Skin Health",
+      "description": "Insights are generated from your scan and general dermatology literature. If irritation, pain, or sudden changes persist, please consult a licensed dermatologist.",
+      "ctaLabel": "Find a Doctor"
+    }
+  },
+  "profile": {
+    "headline": "Your profile",
+    "subtext": "Manage preferences, reminders, and connected devices.",
+    "rows": [
+      { "id": "r1", "title": "Scan history", "icon": "history" },
+      { "id": "r2", "title": "Notifications", "icon": "bell-outline" },
+      { "id": "r3", "title": "Privacy", "icon": "lock-outline" }
+    ]
+  }
+}

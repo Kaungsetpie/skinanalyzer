@@ -36,12 +36,12 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-[#F8F9FA]">
-      <Header title={app.name} avatarUri={user.avatarUri} />
+    {/*  <Header title={app.name} avatarUri={user.avatarUri} /> */}
 
       <View className="flex-1">
         <ScrollView
           className="flex-1"
-          contentContainerClassName="px-6 pb-36 pt-2"
+          contentContainerClassName="px-6 pb-36 pt-16"
           showsVerticalScrollIndicator={false}
         >
           <View className="mb-4 self-center rounded-full bg-[#E0F2F1] px-4 py-1.5">
@@ -63,12 +63,6 @@ export default function HomeScreen() {
               colorClass="bg-teal-alt"
               onPress={() => router.push("/(tabs)/analysis")}
             />
-            <Pressable className="flex-row items-center justify-center gap-2 py-2 active:opacity-70">
-              <MaterialCommunityIcons name="play-circle-outline" size={22} color="#006D77" />
-              <Text className="text-sm font-semibold text-teal-alt">
-                {home.secondaryCta}
-              </Text>
-            </Pressable>
           </View>
 
           <View className="mt-8">
@@ -87,38 +81,10 @@ export default function HomeScreen() {
               <FeatureCard
                 key={f.id}
                 feature={f}
-                trustedFooter={
-                  f.footerTrusted
-                    ? {
-                        label: home.userStats.trustedLabel,
-                        avatars: home.userStats.avatars,
-                      }
-                    : undefined
-                }
                 onDemoPress={() => router.push("/(tabs)/analysis")}
               />
             ))}
           </View>
-
-          <View className="mt-10">
-            <Text className="text-xl font-bold text-slate-900">
-              {home.productsSection.title}
-            </Text>
-            <Text className="mt-2 text-sm leading-6 text-slate-600">
-              {home.productsSection.subtext}
-            </Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              className="mt-4 -mx-1"
-              contentContainerClassName="px-1 pb-2"
-            >
-              {home.products.map((p) => (
-                <HomeProductItem key={p.id} product={p} />
-              ))}
-            </ScrollView>
-          </View>
-
           <View className="mt-8 overflow-hidden rounded-3xl">
             <LinearGradient
               colors={["#006D77", "#004D4D"]}

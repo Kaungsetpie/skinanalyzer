@@ -9,7 +9,6 @@ type CaptureCardProps = {
   captureHint: string;
   onGalleryPress?: () => void;
   onShutterPress?: () => void;
-  onFlipPress?: () => void;
 };
 
 export function CaptureCard({
@@ -19,7 +18,6 @@ export function CaptureCard({
   captureHint,
   onGalleryPress,
   onShutterPress,
-  onFlipPress,
 }: CaptureCardProps) {
   return (
     <View className="overflow-hidden rounded-3xl shadow-md">
@@ -76,15 +74,7 @@ export function CaptureCard({
           >
             <MaterialCommunityIcons name="camera-iris" size={32} color="#ffffff" />
           </Pressable>
-          <Pressable
-            onPress={onFlipPress}
-            className="h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm active:opacity-80"
-            accessibilityRole="button"
-            accessibilityLabel="Flip camera"
-          >
-            <MaterialCommunityIcons name="camera-flip-outline" size={22} color="#0f172a" />
-          </Pressable>
-        </View>
+         </View>
       </LinearGradient>
     </View>
   );

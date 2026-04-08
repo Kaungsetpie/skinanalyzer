@@ -36,13 +36,6 @@ export function ReportProductCard({ product, onAddPress }: ReportProductCardProp
           </Text>
         </View>
       </View>
-      <View className="mt-4">
-        <ActionButton
-          label={product.ctaLabel}
-          onPress={onAddPress}
-          colorClass="bg-teal-dark"
-        />
-      </View>
     </View>
   );
 }

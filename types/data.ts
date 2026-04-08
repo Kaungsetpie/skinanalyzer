@@ -112,8 +112,10 @@ export interface SkinData {
     filters: {
       priceLabel: string;
       priceValue: string;
+      priceOptions: string[];
       originLabel: string;
       originValue: string;
+      originOptions: string[];
       veganLabel: string;
       veganOn: boolean;
       matchedCount: number;

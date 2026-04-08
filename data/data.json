@@ -142,14 +142,28 @@
     "filters": {
       "priceLabel": "Price Range",
       "priceValue": "$10 - $30",
+      "priceOptions": [
+        "All prices",
+        "Under $10",
+        "$10 - $30",
+        "$30 - $50",
+        "$50+"
+      ],
       "originLabel": "Made In",
       "originValue": "Korea",
+      "originOptions": [
+        "All regions",
+        "Korea",
+        "France",
+        "USA",
+        "Japan"
+      ],
       "veganLabel": "Vegan Choices",
       "veganOn": true,
       "matchedCount": 12,
       "activeChips": [
         { "id": "chip-price", "label": "$10 - $30" },
-        { "id": "chip-korea", "label": "Korea" }
+        { "id": "chip-origin", "label": "Korea" }
       ]
     },
     "products": [

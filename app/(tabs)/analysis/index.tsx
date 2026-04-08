@@ -1,23 +1,48 @@
+import { useState } from "react";
 import { useRouter } from "expo-router";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View,Image } from "react-native";
 import { CaptureCard } from "../../../components/CaptureCard";
-import { Header } from "../../../components/Header";
 import { InfoCard } from "../../../components/InfoCard";
 import { StatusCard } from "../../../components/StatusCard";
 import { skinData } from "../../../lib/skinData";
+import * as ImagePicker from "expo-image-picker";
 
 export default function AnalysisScreen() {
   const router = useRouter();
   const { app, user, analysisCapture: a } = skinData;
+  const [image, setImage] = useState<string | null>(null);
 
   const heroPlain = a.heroTitle.replace(a.heroAccent, "").trim();
+  const uploadPhoto =  async()=>{
+    let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images'],
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if(!result.canceled){
+        setImage(result.assets[0].uri);
+      }
 
+  } 
+  const takePhoto = async()=>{
+    let result = await ImagePicker.requestCameraPermissionsAsync();
+    if(result.granted){
+      let res = await ImagePicker.launchCameraAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if(!res.canceled){
+        setImage(res.assets[0].uri);
+      }
+    }
+  }
   return (
     <View className="flex-1 bg-[#F8FAFC]">
-      <Header title={app.name} avatarUri={user.avatarUri} />
       <ScrollView
         className="flex-1"
-        contentContainerClassName="px-5 pb-28 pt-4"
+        contentContainerClassName="px-5 pb-28 pt-16"
         showsVerticalScrollIndicator={false}
       >
         <View className="mb-6 items-center">
@@ -35,8 +60,10 @@ export default function AnalysisScreen() {
           liveStatusDetail={a.liveStatusDetail}
           captureTitle={a.captureTitle}
           captureHint={a.captureHint}
+          onGalleryPress={uploadPhoto}
+          onShutterPress={takePhoto}
         />
-
+   {/*}
         <View className="mt-5 flex-row gap-3">
           <InfoCard
             icon="white-balance-sunny"
@@ -51,8 +78,10 @@ export default function AnalysisScreen() {
             variant="blue"
           />
         </View>
-
+        */}
+       {image && (
         <View className="mt-5">
+        <Image source={{ uri: image }} className="h-64 w-full rounded-2xl object-cover" />
           <StatusCard
             title={a.analyzing.title}
             description={a.analyzing.description}
@@ -60,6 +89,8 @@ export default function AnalysisScreen() {
             onCtaPress={() => router.push("/(tabs)/analysis/report")}
           />
         </View>
+       )
+       }
       </ScrollView>
     </View>
   );

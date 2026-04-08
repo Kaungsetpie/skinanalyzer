@@ -26,14 +26,6 @@ export function MedicalNote({
           <Text className="mt-2 text-sm leading-6 text-slate-600">{description}</Text>
         </View>
       </View>
-      <View className="mt-4">
-        <ActionButton
-          label={ctaLabel}
-          onPress={onCtaPress}
-          variant="outline"
-          colorClass="bg-white"
-        />
-      </View>
     </View>
   );
 }

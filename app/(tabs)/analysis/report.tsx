@@ -1,29 +1,43 @@
-import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ScrollView, View } from "react-native";
+import type { FilterChip } from "../../../types/data";
 import { AnalysisReportCard } from "../../../components/AnalysisReportCard";
 import { FilterBar } from "../../../components/FilterBar";
-import { Header } from "../../../components/Header";
 import { MedicalNote } from "../../../components/MedicalNote";
 import { ReportProductCard } from "../../../components/ReportProductCard";
 import { skinData } from "../../../lib/skinData";
 
 export default function AnalysisReportScreen() {
-  const router = useRouter();
-  const { app, user, report } = skinData;
-  const [veganOn, setVeganOn] = useState(report.filters.veganOn);
+  const { report } = skinData;
+  const f = report.filters;
+  const allPrice = f.priceOptions[0]!;
+  const allOrigin = f.originOptions[0]!;
+
+  const [veganOn, setVeganOn] = useState(f.veganOn);
+  const [priceValue, setPriceValue] = useState(f.priceValue);
+  const [originValue, setOriginValue] = useState(f.originValue);
+
+  const chips = useMemo(() => {
+    const next: FilterChip[] = [];
+    if (priceValue !== allPrice) {
+      next.push({ id: "chip-price", label: priceValue });
+    }
+    if (originValue !== allOrigin) {
+      next.push({ id: "chip-origin", label: originValue });
+    }
+    return next;
+  }, [priceValue, originValue, allPrice, allOrigin]);
+
+  const onChipRemove = (id: string) => {
+    if (id === "chip-price") setPriceValue(allPrice);
+    if (id === "chip-origin") setOriginValue(allOrigin);
+  };
 
   return (
     <View className="flex-1 bg-[#F8F9FA]">
-      <Header
-        title={app.name}
-        avatarUri={user.avatarUri}
-        variant="back"
-        onBackPress={() => router.back()}
-      />
       <ScrollView
         className="flex-1"
-        contentContainerClassName="px-5 pb-28 pt-4"
+        contentContainerClassName="px-5 pb-28 pt-16"
         showsVerticalScrollIndicator={false}
       >
         <AnalysisReportCard
@@ -37,15 +51,20 @@ export default function AnalysisReportScreen() {
 
         <View className="mt-6">
           <FilterBar
-            priceLabel={report.filters.priceLabel}
-            priceValue={report.filters.priceValue}
-            originLabel={report.filters.originLabel}
-            originValue={report.filters.originValue}
-            veganLabel={report.filters.veganLabel}
+            priceLabel={f.priceLabel}
+            priceValue={priceValue}
+            priceOptions={f.priceOptions}
+            onPriceChange={setPriceValue}
+            originLabel={f.originLabel}
+            originValue={originValue}
+            originOptions={f.originOptions}
+            onOriginChange={setOriginValue}
+            veganLabel={f.veganLabel}
             veganOn={veganOn}
             onVeganChange={setVeganOn}
-            matchedCount={report.filters.matchedCount}
-            chips={report.filters.activeChips}
+            matchedCount={f.matchedCount}
+            chips={chips}
+            onChipRemove={onChipRemove}
           />
         </View>
 

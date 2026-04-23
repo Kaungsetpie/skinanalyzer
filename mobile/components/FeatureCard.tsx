@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Image, Pressable, Text, View } from "react-native";
-import type { FeatureItem } from "../types/data";
+import type { FeatureItem } from "../../types/data";
 
 type FeatureCardProps = {
   feature: FeatureItem;

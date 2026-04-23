@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
-import type { ReportTag } from "../types/data";
+import type { ReportTag } from "../../types/data";
 import { DonutScore } from "./DonutScore";
 
 function tagIcon(

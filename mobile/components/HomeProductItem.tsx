@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Image, Pressable, Text, View } from "react-native";
-import type { HomeProduct } from "../types/data";
+import type { HomeProduct } from "../../types/data";
 
 type HomeProductItemProps = {
   product: HomeProduct;

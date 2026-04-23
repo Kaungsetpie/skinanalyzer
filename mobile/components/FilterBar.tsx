@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { FilterChip } from "../types/data";
+import type { FilterChip } from "../../types/data";
 
 type PickerKind = "price" | "origin" | null;
 

@@ -1,40 +1,56 @@
 import { useState } from "react";
 import { useRouter } from "expo-router";
-import { ScrollView, Text, View,Image } from "react-native";
+import { ScrollView, Text, View, Image } from "react-native";
 import { CaptureCard } from "../../../components/CaptureCard";
 import { InfoCard } from "../../../components/InfoCard";
 import { StatusCard } from "../../../components/StatusCard";
 import { skinData } from "../../../lib/skinData";
 import * as ImagePicker from "expo-image-picker";
+import { useFetch } from "../../../hooks/useFetch";
+import { apiRequest } from "../../../services/api";
 
 export default function AnalysisScreen() {
   const router = useRouter();
   const { app, user, analysisCapture: a } = skinData;
   const [image, setImage] = useState<string | null>(null);
-
   const heroPlain = a.heroTitle.replace(a.heroAccent, "").trim();
-  const uploadPhoto =  async()=>{
+  const sendImageToServer = async (imageFile: string) => {
+    const formData = new FormData();
+    formData.append('file', {
+      uri: imageFile,
+      name: 'photo.jpg',
+      type: 'image/jpeg'
+    } as any);
+   const result = await apiRequest("analysis/upload", "POST", formData,"formData");
+   console.log("Upload result:", result);
+  }
+  const uploadPhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ['images'],
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
-      if(!result.canceled){
-        setImage(result.assets[0].uri);
-      }
-
-  } 
-  const takePhoto = async()=>{
+      mediaTypes: ['images'],
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+    if (result && result.assets) {
+      await sendImageToServer(result.assets[0]?.uri);
+    }
+  }
+  const takePhoto = async () => {
     let result = await ImagePicker.requestCameraPermissionsAsync();
-    if(result.granted){
+    if (result.granted) {
       let res = await ImagePicker.launchCameraAsync({
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
       });
-      if(!res.canceled){
+      if (!res.canceled) {
         setImage(res.assets[0].uri);
+      }
+      if (res && res.assets) {
+        await sendImageToServer(res.assets[0]?.uri);
       }
     }
   }
@@ -63,7 +79,7 @@ export default function AnalysisScreen() {
           onGalleryPress={uploadPhoto}
           onShutterPress={takePhoto}
         />
-   {/*}
+        {/*}
         <View className="mt-5 flex-row gap-3">
           <InfoCard
             icon="white-balance-sunny"
@@ -79,18 +95,18 @@ export default function AnalysisScreen() {
           />
         </View>
         */}
-       {image && (
-        <View className="mt-5">
-        <Image source={{ uri: image }} className="h-64 w-full rounded-2xl object-cover" />
-          <StatusCard
-            title={a.analyzing.title}
-            description={a.analyzing.description}
-            ctaLabel={a.analyzing.ctaLabel}
-            onCtaPress={() => router.push("/(tabs)/analysis/report")}
-          />
-        </View>
-       )
-       }
+        {image && (
+          <View className="mt-5">
+            <Image source={{ uri: image }} className="h-64 w-full rounded-2xl object-cover" />
+            <StatusCard
+              title={a.analyzing.title}
+              description={a.analyzing.description}
+              ctaLabel={a.analyzing.ctaLabel}
+              onCtaPress={() => router.push("/(tabs)/analysis/report")}
+            />
+          </View>
+        )
+        }
       </ScrollView>
     </View>
   );

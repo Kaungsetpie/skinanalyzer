@@ -1,41 +1,45 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# --- Frontend (React Native / Expo) ---
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/expo-env.d.ts
+mobile/tsbuildinfo
 
-# dependencies
-node_modules/
+# Native Android/iOS builds
+mobile/ios/
+mobile/android/
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+mobile/*.orig.*
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# --- Backend (Python / FastAPI) ---
+backend/__pycache__/
+backend/.venv/
+backend/env/
+backend/.env
+backend/venv/
+backend/*.pyc
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/test.db
+backend/log.txt
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
+# --- System & Tools ---
+.DS_Store
+*.pem
+.env
+.env*.local
 .metro-health-check*
-
-# debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
-.DS_Store
-*.pem
+# VS Code / IDEs
+.vscode/
+.idea/
 
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-# generated native folders
-/ios
-/android

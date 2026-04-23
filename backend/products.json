@@ -1,0 +1,1686 @@
+[
+    {
+        "id": 1,
+        "name": "Refreshing Water Gel",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 10.44,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "sensitivity",
+            "sun protection",
+            "large pores"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_1.jpg",
+        "description": "A professional grade moisturizer by Eucerin (Germany) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Refreshing+Water+Gel"
+    },
+    {
+        "id": 2,
+        "name": "Soothing Face Wash",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 19.23,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "oiliness",
+            "acne",
+            "aging"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_2.jpg",
+        "description": "A professional grade cleanser by The Ordinary (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Soothing+Face+Wash"
+    },
+    {
+        "id": 3,
+        "name": "Deep Gel Cleanser",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 27.69,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "redness",
+            "aging"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_3.jpg",
+        "description": "A professional grade cleanser by The Ordinary (Canada) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Deep+Gel+Cleanser"
+    },
+    {
+        "id": 4,
+        "name": "Hydrating Blemish Gel",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 22.8,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "sensitivity",
+            "oiliness",
+            "large pores"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_4.jpg",
+        "description": "A professional grade treatment by Vichy (France) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Hydrating+Blemish+Gel"
+    },
+    {
+        "id": 5,
+        "name": "Advanced Oil Drops",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 30.78,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "clogged pores"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_5.jpg",
+        "description": "A professional grade serum by The Ordinary (Canada) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Advanced+Oil+Drops"
+    },
+    {
+        "id": 6,
+        "name": "Deep Balancing Toner",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 19.07,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "sun protection",
+            "dehydration",
+            "clogged pores"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_6.jpg",
+        "description": "A professional grade toner by Neutrogena (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Deep+Balancing+Toner"
+    },
+    {
+        "id": 7,
+        "name": "Advanced Night Cream",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 19.62,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "acne"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_7.jpg",
+        "description": "A professional grade moisturizer by The Ordinary (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Advanced+Night+Cream"
+    },
+    {
+        "id": 8,
+        "name": "Clarifying Water Gel",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 28.97,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_8.jpg",
+        "description": "A professional grade moisturizer by Cetaphil (Canada) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Clarifying+Water+Gel"
+    },
+    {
+        "id": 9,
+        "name": "Gentle Oil Drops",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 84.31,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "aging",
+            "dark spots"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_9.jpg",
+        "description": "A professional grade serum by Neutrogena (USA) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Gentle+Oil+Drops"
+    },
+    {
+        "id": 10,
+        "name": "Clarifying Exfoliant",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 42.93,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "aging"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_10.jpg",
+        "description": "A professional grade treatment by Anessa (Japan) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Clarifying+Exfoliant"
+    },
+    {
+        "id": 11,
+        "name": "Intensive Cleansing Balm",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 25.61,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "clogged pores"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_11.jpg",
+        "description": "A professional grade cleanser by La Roche-Posay (France) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Intensive+Cleansing+Balm"
+    },
+    {
+        "id": 12,
+        "name": "Hydrating Facial Cream",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 9.32,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "acne"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_12.jpg",
+        "description": "A professional grade moisturizer by Neutrogena (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Hydrating+Facial+Cream"
+    },
+    {
+        "id": 13,
+        "name": "Gentle Serum",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 54.91,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_13.jpg",
+        "description": "A professional grade serum by Aveeno (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Gentle+Serum"
+    },
+    {
+        "id": 14,
+        "name": "Deep Booster",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 46.12,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "large pores",
+            "redness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_14.jpg",
+        "description": "A professional grade serum by Aveeno (USA) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Deep+Booster"
+    },
+    {
+        "id": 15,
+        "name": "Soothing Exfoliant",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 82.47,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "aging",
+            "redness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_15.jpg",
+        "description": "A professional grade treatment by Hada Labo (Japan) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Soothing+Exfoliant"
+    },
+    {
+        "id": 16,
+        "name": "Intensive Daily Protection",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 34.49,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "oiliness",
+            "dryness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_16.jpg",
+        "description": "A professional grade sunscreen by The Ordinary (Canada) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Intensive+Daily+Protection"
+    },
+    {
+        "id": 17,
+        "name": "Deep Lotion",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 16.12,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "redness",
+            "clogged pores",
+            "aging"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_17.jpg",
+        "description": "A professional grade moisturizer by La Roche-Posay (France) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Deep+Lotion"
+    },
+    {
+        "id": 18,
+        "name": "Refreshing Oil Drops",
+        "brand": "Paula's Choice",
+        "made_in": "USA",
+        "price": 74.01,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration",
+            "redness",
+            "clogged pores"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_18.jpg",
+        "description": "A professional grade serum by Paula's Choice (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Paula's+Choice+Refreshing+Oil+Drops"
+    },
+    {
+        "id": 19,
+        "name": "Daily Mist",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 19.28,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "redness",
+            "sun protection"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_19.jpg",
+        "description": "A professional grade toner by Hada Labo (Japan) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Daily+Mist"
+    },
+    {
+        "id": 20,
+        "name": "Ultra Concentrate",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 64.3,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_20.jpg",
+        "description": "A professional grade serum by Anessa (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Ultra+Concentrate"
+    },
+    {
+        "id": 21,
+        "name": "Hydrating Exfoliant",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 65.75,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "redness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_21.jpg",
+        "description": "A professional grade treatment by The Ordinary (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Hydrating+Exfoliant"
+    },
+    {
+        "id": 22,
+        "name": "Gentle Face Wash",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 29.71,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sensitivity"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_22.jpg",
+        "description": "A professional grade cleanser by The Ordinary (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Gentle+Face+Wash"
+    },
+    {
+        "id": 23,
+        "name": "Daily Daily Protection",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 13.83,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dehydration"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_23.jpg",
+        "description": "A professional grade sunscreen by Hada Labo (Japan) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Daily+Daily+Protection"
+    },
+    {
+        "id": 24,
+        "name": "Advanced Essence",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 22.72,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "dark spots",
+            "dehydration"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_24.jpg",
+        "description": "A professional grade toner by Eucerin (Germany) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Advanced+Essence"
+    },
+    {
+        "id": 25,
+        "name": "Soothing Facial Cream",
+        "brand": "COSRX",
+        "made_in": "South Korea",
+        "price": 15.93,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "redness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_25.jpg",
+        "description": "A professional grade moisturizer by COSRX (South Korea) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=COSRX+Soothing+Facial+Cream"
+    },
+    {
+        "id": 26,
+        "name": "Hydrating Blemish Gel",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 22.41,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "dryness",
+            "clogged pores",
+            "dark spots"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_26.jpg",
+        "description": "A professional grade treatment by Vichy (France) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Hydrating+Blemish+Gel"
+    },
+    {
+        "id": 27,
+        "name": "Ultra Sunscreen Stick",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 41.98,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_27.jpg",
+        "description": "A professional grade sunscreen by Cetaphil (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Ultra+Sunscreen+Stick"
+    },
+    {
+        "id": 28,
+        "name": "Gentle Serum",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 39.48,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_28.jpg",
+        "description": "A professional grade serum by Aveeno (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Gentle+Serum"
+    },
+    {
+        "id": 29,
+        "name": "Hydrating Gel Cleanser",
+        "brand": "COSRX",
+        "made_in": "South Korea",
+        "price": 21.03,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "clogged pores"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_29.jpg",
+        "description": "A professional grade cleanser by COSRX (South Korea) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=COSRX+Hydrating+Gel+Cleanser"
+    },
+    {
+        "id": 30,
+        "name": "Ultra Essence",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 13.65,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sensitivity",
+            "large pores",
+            "oiliness"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_30.jpg",
+        "description": "A professional grade toner by Anessa (Japan) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Ultra+Essence"
+    },
+    {
+        "id": 31,
+        "name": "Refreshing Booster",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 52.09,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "sun protection",
+            "dark spots"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_31.jpg",
+        "description": "A professional grade serum by Cetaphil (Canada) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Refreshing+Booster"
+    },
+    {
+        "id": 32,
+        "name": "Clarifying Booster",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 42.37,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "redness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_32.jpg",
+        "description": "A professional grade serum by Neutrogena (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Clarifying+Booster"
+    },
+    {
+        "id": 33,
+        "name": "Intensive Oil Drops",
+        "brand": "SkinCeuticals",
+        "made_in": "USA",
+        "price": 24.58,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "oiliness",
+            "sun protection"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_33.jpg",
+        "description": "A professional grade serum by SkinCeuticals (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=SkinCeuticals+Intensive+Oil+Drops"
+    },
+    {
+        "id": 34,
+        "name": "Deep Lotion",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 22.5,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_34.jpg",
+        "description": "A professional grade moisturizer by Neutrogena (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Deep+Lotion"
+    },
+    {
+        "id": 35,
+        "name": "Intensive Facial Cream",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 33.61,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_35.jpg",
+        "description": "A professional grade moisturizer by La Roche-Posay (France) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Intensive+Facial+Cream"
+    },
+    {
+        "id": 36,
+        "name": "Advanced Balancing Toner",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 10.87,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "sensitivity",
+            "dark spots",
+            "redness"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_36.jpg",
+        "description": "A professional grade toner by Kiehl's (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Advanced+Balancing+Toner"
+    },
+    {
+        "id": 37,
+        "name": "Deep Blemish Gel",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 38.55,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "large pores",
+            "dryness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_37.jpg",
+        "description": "A professional grade treatment by Hada Labo (Japan) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Deep+Blemish+Gel"
+    },
+    {
+        "id": 38,
+        "name": "Soothing Peel",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 52.94,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "acne",
+            "dryness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_38.jpg",
+        "description": "A professional grade treatment by Hada Labo (Japan) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Soothing+Peel"
+    },
+    {
+        "id": 39,
+        "name": "Ultra Serum",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 45.01,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "clogged pores"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_39.jpg",
+        "description": "A professional grade serum by Neutrogena (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Ultra+Serum"
+    },
+    {
+        "id": 40,
+        "name": "Daily Balancing Toner",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 15.73,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "dryness",
+            "aging"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_40.jpg",
+        "description": "A professional grade toner by Aveeno (USA) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Daily+Balancing+Toner"
+    },
+    {
+        "id": 41,
+        "name": "Deep Blemish Gel",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 42.93,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "acne",
+            "oiliness",
+            "dehydration"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_41.jpg",
+        "description": "A professional grade treatment by Eucerin (Germany) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Deep+Blemish+Gel"
+    },
+    {
+        "id": 42,
+        "name": "Ultra Spot Treatment",
+        "brand": "CeraVe",
+        "made_in": "USA",
+        "price": 75.38,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "aging"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_42.jpg",
+        "description": "A professional grade treatment by CeraVe (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=CeraVe+Ultra+Spot+Treatment"
+    },
+    {
+        "id": 43,
+        "name": "Hydrating Facial Cream",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 33.61,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "redness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_43.jpg",
+        "description": "A professional grade moisturizer by Vichy (France) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Hydrating+Facial+Cream"
+    },
+    {
+        "id": 44,
+        "name": "Advanced Balancing Toner",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 16.56,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "sensitivity",
+            "acne"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_44.jpg",
+        "description": "A professional grade toner by The Ordinary (Canada) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Advanced+Balancing+Toner"
+    },
+    {
+        "id": 45,
+        "name": "Deep Mist",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 34.36,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_45.jpg",
+        "description": "A professional grade toner by Kiehl's (USA) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Deep+Mist"
+    },
+    {
+        "id": 46,
+        "name": "Advanced Essence",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 12.11,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_46.jpg",
+        "description": "A professional grade toner by Hada Labo (Japan) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Advanced+Essence"
+    },
+    {
+        "id": 47,
+        "name": "Soothing Cleansing Balm",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 9.75,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "oiliness",
+            "acne",
+            "dark spots"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_47.jpg",
+        "description": "A professional grade cleanser by Vichy (France) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Soothing+Cleansing+Balm"
+    },
+    {
+        "id": 48,
+        "name": "Advanced UV Defender",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 44.74,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "sensitivity",
+            "dryness",
+            "dehydration"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_48.jpg",
+        "description": "A professional grade sunscreen by Eucerin (Germany) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Advanced+UV+Defender"
+    },
+    {
+        "id": 49,
+        "name": "Refreshing Balancing Toner",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 26.85,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "dark spots",
+            "dehydration",
+            "acne"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_49.jpg",
+        "description": "A professional grade toner by Aveeno (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Refreshing+Balancing+Toner"
+    },
+    {
+        "id": 50,
+        "name": "Intensive Peel",
+        "brand": "CeraVe",
+        "made_in": "USA",
+        "price": 17.12,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dehydration",
+            "aging"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_50.jpg",
+        "description": "A professional grade treatment by CeraVe (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=CeraVe+Intensive+Peel"
+    },
+    {
+        "id": 51,
+        "name": "Hydrating Exfoliant",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 18.13,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_51.jpg",
+        "description": "A professional grade treatment by Eucerin (Germany) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Hydrating+Exfoliant"
+    },
+    {
+        "id": 52,
+        "name": "Hydrating Oil Drops",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 24.19,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration",
+            "sun protection",
+            "large pores"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_52.jpg",
+        "description": "A professional grade serum by Cetaphil (Canada) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Hydrating+Oil+Drops"
+    },
+    {
+        "id": 53,
+        "name": "Gentle Foaming Cleanser",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 30.24,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "aging",
+            "dark spots"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_53.jpg",
+        "description": "A professional grade cleanser by Neutrogena (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Gentle+Foaming+Cleanser"
+    },
+    {
+        "id": 54,
+        "name": "Daily Concentrate",
+        "brand": "The Inkey List",
+        "made_in": "UK",
+        "price": 42.83,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_54.jpg",
+        "description": "A professional grade serum by The Inkey List (UK) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Inkey+List+Daily+Concentrate"
+    },
+    {
+        "id": 55,
+        "name": "Gentle Balancing Toner",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 15.61,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "oiliness",
+            "redness"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_55.jpg",
+        "description": "A professional grade toner by Neutrogena (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Gentle+Balancing+Toner"
+    },
+    {
+        "id": 56,
+        "name": "Gentle Exfoliant",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 24.96,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "clogged pores"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_56.jpg",
+        "description": "A professional grade treatment by Kiehl's (USA) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Gentle+Exfoliant"
+    },
+    {
+        "id": 57,
+        "name": "Intensive UV Defender",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 34.78,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dark spots"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_57.jpg",
+        "description": "A professional grade sunscreen by Neutrogena (USA) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Intensive+UV+Defender"
+    },
+    {
+        "id": 58,
+        "name": "Gentle Water Gel",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 9.89,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "sensitivity",
+            "dryness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_58.jpg",
+        "description": "A professional grade moisturizer by Vichy (France) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Gentle+Water+Gel"
+    },
+    {
+        "id": 59,
+        "name": "Refreshing Booster",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 59.59,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "aging",
+            "acne",
+            "clogged pores"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_59.jpg",
+        "description": "A professional grade serum by Anessa (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Refreshing+Booster"
+    },
+    {
+        "id": 60,
+        "name": "Hydrating Cleansing Balm",
+        "brand": "Innisfree",
+        "made_in": "South Korea",
+        "price": 26.16,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_60.jpg",
+        "description": "A professional grade cleanser by Innisfree (South Korea) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Innisfree+Hydrating+Cleansing+Balm"
+    },
+    {
+        "id": 61,
+        "name": "Clarifying Booster",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 65.37,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "sensitivity",
+            "sun protection"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_61.jpg",
+        "description": "A professional grade serum by Aveeno (USA) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Clarifying+Booster"
+    },
+    {
+        "id": 62,
+        "name": "Ultra Lotion",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 34.37,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration",
+            "sensitivity"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_62.jpg",
+        "description": "A professional grade moisturizer by Hada Labo (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Ultra+Lotion"
+    },
+    {
+        "id": 63,
+        "name": "Ultra Lotion",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 23.13,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_63.jpg",
+        "description": "A professional grade moisturizer by Hada Labo (Japan) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Ultra+Lotion"
+    },
+    {
+        "id": 64,
+        "name": "Refreshing Oil Drops",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 48.74,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "aging",
+            "acne",
+            "oiliness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_64.jpg",
+        "description": "A professional grade serum by Kiehl's (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Refreshing+Oil+Drops"
+    },
+    {
+        "id": 65,
+        "name": "Hydrating Liquid Exfoliant",
+        "brand": "CeraVe",
+        "made_in": "USA",
+        "price": 15.94,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "aging",
+            "redness",
+            "dark spots"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_65.jpg",
+        "description": "A professional grade toner by CeraVe (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=CeraVe+Hydrating+Liquid+Exfoliant"
+    },
+    {
+        "id": 66,
+        "name": "Daily Essence",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 15.83,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "aging"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_66.jpg",
+        "description": "A professional grade toner by Aveeno (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Daily+Essence"
+    },
+    {
+        "id": 67,
+        "name": "Ultra Cleansing Balm",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 16.43,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "large pores"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_67.jpg",
+        "description": "A professional grade cleanser by Cetaphil (Canada) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Ultra+Cleansing+Balm"
+    },
+    {
+        "id": 68,
+        "name": "Hydrating Concentrate",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 54.93,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "sun protection",
+            "sensitivity",
+            "dryness"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_68.jpg",
+        "description": "A professional grade serum by Neutrogena (USA) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Hydrating+Concentrate"
+    },
+    {
+        "id": 69,
+        "name": "Daily Booster",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 16.39,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "acne"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_69.jpg",
+        "description": "A professional grade serum by La Roche-Posay (France) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Daily+Booster"
+    },
+    {
+        "id": 70,
+        "name": "Deep Gel Cleanser",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 16.3,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "oiliness",
+            "clogged pores",
+            "aging"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_70.jpg",
+        "description": "A professional grade cleanser by Eucerin (Germany) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Deep+Gel+Cleanser"
+    },
+    {
+        "id": 71,
+        "name": "Clarifying Exfoliant",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 67.84,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "redness",
+            "large pores",
+            "oiliness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_71.jpg",
+        "description": "A professional grade treatment by La Roche-Posay (France) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Clarifying+Exfoliant"
+    },
+    {
+        "id": 72,
+        "name": "Deep Face Wash",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 10.0,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "large pores",
+            "clogged pores",
+            "dehydration"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_72.jpg",
+        "description": "A professional grade cleanser by La Roche-Posay (France) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Deep+Face+Wash"
+    },
+    {
+        "id": 73,
+        "name": "Gentle Serum",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 56.68,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "oiliness",
+            "acne"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_73.jpg",
+        "description": "A professional grade serum by Kiehl's (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Gentle+Serum"
+    },
+    {
+        "id": 74,
+        "name": "Soothing Sunscreen Stick",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 21.91,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_74.jpg",
+        "description": "A professional grade sunscreen by Vichy (France) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Soothing+Sunscreen+Stick"
+    },
+    {
+        "id": 75,
+        "name": "Daily Night Cream",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 33.64,
+        "currency": "USD",
+        "skin_type": "all",
+        "concerns": [
+            "dark spots",
+            "clogged pores",
+            "dehydration"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_75.jpg",
+        "description": "A professional grade moisturizer by The Ordinary (Canada) designed for all skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Daily+Night+Cream"
+    },
+    {
+        "id": 76,
+        "name": "Daily Night Cream",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 29.36,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "redness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_76.jpg",
+        "description": "A professional grade moisturizer by Anessa (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Daily+Night+Cream"
+    },
+    {
+        "id": 77,
+        "name": "Intensive Exfoliant",
+        "brand": "COSRX",
+        "made_in": "South Korea",
+        "price": 16.69,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dark spots",
+            "dehydration",
+            "aging"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_77.jpg",
+        "description": "A professional grade treatment by COSRX (South Korea) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=COSRX+Intensive+Exfoliant"
+    },
+    {
+        "id": 78,
+        "name": "Hydrating Blemish Gel",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 80.67,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration",
+            "dark spots"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_78.jpg",
+        "description": "A professional grade treatment by Hada Labo (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Hydrating+Blemish+Gel"
+    },
+    {
+        "id": 79,
+        "name": "Daily Oil Drops",
+        "brand": "Eucerin",
+        "made_in": "Germany",
+        "price": 71.95,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dryness",
+            "aging"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_79.jpg",
+        "description": "A professional grade serum by Eucerin (Germany) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Eucerin+Daily+Oil+Drops"
+    },
+    {
+        "id": 80,
+        "name": "Soothing Peel",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 76.62,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "sensitivity"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_80.jpg",
+        "description": "A professional grade treatment by Kiehl's (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Soothing+Peel"
+    },
+    {
+        "id": 81,
+        "name": "Refreshing Concentrate",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 72.73,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "acne",
+            "dark spots"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_81.jpg",
+        "description": "A professional grade serum by Anessa (Japan) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Refreshing+Concentrate"
+    },
+    {
+        "id": 82,
+        "name": "Gentle Daily Protection",
+        "brand": "Vichy",
+        "made_in": "France",
+        "price": 43.89,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "aging",
+            "large pores"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_82.jpg",
+        "description": "A professional grade sunscreen by Vichy (France) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Vichy+Gentle+Daily+Protection"
+    },
+    {
+        "id": 83,
+        "name": "Refreshing Exfoliant",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 45.13,
+        "currency": "USD",
+        "skin_type": "oily",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "treatment",
+        "image_url": "https://example.com/images/product_83.jpg",
+        "description": "A professional grade treatment by Cetaphil (Canada) designed for oily skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Refreshing+Exfoliant"
+    },
+    {
+        "id": 84,
+        "name": "Gentle Daily Protection",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 20.34,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "clogged pores",
+            "dryness",
+            "large pores"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_84.jpg",
+        "description": "A professional grade sunscreen by Anessa (Japan) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Gentle+Daily+Protection"
+    },
+    {
+        "id": 85,
+        "name": "Gentle Sunscreen Stick",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 41.66,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "aging",
+            "dehydration"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_85.jpg",
+        "description": "A professional grade sunscreen by Kiehl's (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Gentle+Sunscreen+Stick"
+    },
+    {
+        "id": 86,
+        "name": "Hydrating UV Defender",
+        "brand": "The Ordinary",
+        "made_in": "Canada",
+        "price": 32.44,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_86.jpg",
+        "description": "A professional grade sunscreen by The Ordinary (Canada) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Ordinary+Hydrating+UV+Defender"
+    },
+    {
+        "id": 87,
+        "name": "Intensive Sun Fluid",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 12.88,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dark spots",
+            "dehydration",
+            "oiliness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_87.jpg",
+        "description": "A professional grade sunscreen by Hada Labo (Japan) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Intensive+Sun+Fluid"
+    },
+    {
+        "id": 88,
+        "name": "Intensive Facial Cream",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 16.36,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "large pores",
+            "aging"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_88.jpg",
+        "description": "A professional grade moisturizer by Anessa (Japan) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Intensive+Facial+Cream"
+    },
+    {
+        "id": 89,
+        "name": "Advanced Sun Fluid",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 33.62,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "sun protection",
+            "large pores",
+            "acne"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_89.jpg",
+        "description": "A professional grade sunscreen by Cetaphil (Canada) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Advanced+Sun+Fluid"
+    },
+    {
+        "id": 90,
+        "name": "Intensive Booster",
+        "brand": "Kiehl's",
+        "made_in": "USA",
+        "price": 26.02,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration",
+            "acne",
+            "sensitivity"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_90.jpg",
+        "description": "A professional grade serum by Kiehl's (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Kiehl's+Intensive+Booster"
+    },
+    {
+        "id": 91,
+        "name": "Soothing Concentrate",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 52.91,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "sun protection"
+        ],
+        "category": "serum",
+        "image_url": "https://example.com/images/product_91.jpg",
+        "description": "A professional grade serum by La Roche-Posay (France) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Soothing+Concentrate"
+    },
+    {
+        "id": 92,
+        "name": "Soothing UV Defender",
+        "brand": "Innisfree",
+        "made_in": "South Korea",
+        "price": 24.02,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "sunscreen",
+        "image_url": "https://example.com/images/product_92.jpg",
+        "description": "A professional grade sunscreen by Innisfree (South Korea) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Innisfree+Soothing+UV+Defender"
+    },
+    {
+        "id": 93,
+        "name": "Clarifying Gel Cleanser",
+        "brand": "The Inkey List",
+        "made_in": "UK",
+        "price": 20.05,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_93.jpg",
+        "description": "A professional grade cleanser by The Inkey List (UK) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=The+Inkey+List+Clarifying+Gel+Cleanser"
+    },
+    {
+        "id": 94,
+        "name": "Deep Night Cream",
+        "brand": "Anessa",
+        "made_in": "Japan",
+        "price": 33.95,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "oiliness"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_94.jpg",
+        "description": "A professional grade moisturizer by Anessa (Japan) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Anessa+Deep+Night+Cream"
+    },
+    {
+        "id": 95,
+        "name": "Hydrating Face Wash",
+        "brand": "La Roche-Posay",
+        "made_in": "France",
+        "price": 32.98,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dehydration"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_95.jpg",
+        "description": "A professional grade cleanser by La Roche-Posay (France) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=La+Roche-Posay+Hydrating+Face+Wash"
+    },
+    {
+        "id": 96,
+        "name": "Daily Cleansing Balm",
+        "brand": "Innisfree",
+        "made_in": "South Korea",
+        "price": 28.21,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dryness"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_96.jpg",
+        "description": "A professional grade cleanser by Innisfree (South Korea) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Innisfree+Daily+Cleansing+Balm"
+    },
+    {
+        "id": 97,
+        "name": "Deep Facial Cream",
+        "brand": "Hada Labo",
+        "made_in": "Japan",
+        "price": 32.4,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dryness",
+            "sensitivity",
+            "aging"
+        ],
+        "category": "moisturizer",
+        "image_url": "https://example.com/images/product_97.jpg",
+        "description": "A professional grade moisturizer by Hada Labo (Japan) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Hada+Labo+Deep+Facial+Cream"
+    },
+    {
+        "id": 98,
+        "name": "Soothing Face Wash",
+        "brand": "Cetaphil",
+        "made_in": "Canada",
+        "price": 22.22,
+        "currency": "USD",
+        "skin_type": "sensitive",
+        "concerns": [
+            "dark spots",
+            "dryness"
+        ],
+        "category": "cleanser",
+        "image_url": "https://example.com/images/product_98.jpg",
+        "description": "A professional grade cleanser by Cetaphil (Canada) designed for sensitive skin.",
+        "purchase_link": "https://www.google.com/search?q=Cetaphil+Soothing+Face+Wash"
+    },
+    {
+        "id": 99,
+        "name": "Advanced Liquid Exfoliant",
+        "brand": "Neutrogena",
+        "made_in": "USA",
+        "price": 26.27,
+        "currency": "USD",
+        "skin_type": "dry",
+        "concerns": [
+            "dark spots"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_99.jpg",
+        "description": "A professional grade toner by Neutrogena (USA) designed for dry skin.",
+        "purchase_link": "https://www.google.com/search?q=Neutrogena+Advanced+Liquid+Exfoliant"
+    },
+    {
+        "id": 100,
+        "name": "Daily Balancing Toner",
+        "brand": "Aveeno",
+        "made_in": "USA",
+        "price": 19.27,
+        "currency": "USD",
+        "skin_type": "combination",
+        "concerns": [
+            "redness",
+            "sensitivity"
+        ],
+        "category": "toner",
+        "image_url": "https://example.com/images/product_100.jpg",
+        "description": "A professional grade toner by Aveeno (USA) designed for combination skin.",
+        "purchase_link": "https://www.google.com/search?q=Aveeno+Daily+Balancing+Toner"
+    }
+]

@@ -1,5 +1,5 @@
 import { Image, Text, View } from "react-native";
-import type { ReportProduct } from "../types/data";
+import type { ReportProduct } from "../../types/data";
 import { ActionButton } from "./ActionButton";
 
 type ReportProductCardProps = {

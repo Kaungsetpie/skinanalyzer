@@ -36,7 +36,7 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-[#F8F9FA]">
-    {/*  <Header title={app.name} avatarUri={user.avatarUri} /> */}
+      {/*  <Header title={app.name} avatarUri={user.avatarUri} /> */}
 
       <View className="flex-1">
         <ScrollView
@@ -75,44 +75,7 @@ export default function HomeScreen() {
               hydrationPercent={home.liveAnalysis.hydrationPercent}
             />
           </View>
-
-          <View className="mt-8 gap-4">
-            {home.features.map((f) => (
-              <FeatureCard
-                key={f.id}
-                feature={f}
-                onDemoPress={() => router.push("/(tabs)/analysis")}
-              />
-            ))}
-          </View>
-          <View className="mt-8 overflow-hidden rounded-3xl">
-            <LinearGradient
-              colors={["#006D77", "#004D4D"]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={{ padding: 24 }}
-            >
-              <Text className="text-xl font-bold text-white">
-                {home.footerCard.title}
-              </Text>
-              <Text className="mt-2 text-sm leading-6 text-white/85">
-                {home.footerCard.subtitle}
-              </Text>
-              <View className="mt-4 h-28 items-center justify-center rounded-2xl bg-white/10">
-                <MaterialCommunityIcons name="flask" size={48} color="#ffffff" />
-              </View>
-            </LinearGradient>
-          </View>
         </ScrollView>
-
-        <Pressable
-          className="absolute bottom-24 right-6 h-12 w-12 items-center justify-center rounded-2xl bg-teal-alt shadow-lg active:opacity-90"
-          onPress={() => {}}
-          accessibilityRole="button"
-          accessibilityLabel="Settings"
-        >
-          <MaterialCommunityIcons name="cog-outline" size={26} color="#ffffff" />
-        </Pressable>
       </View>
     </View>
   );

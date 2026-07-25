@@ -15,9 +15,7 @@ function TabIcon({
   return (
     <View
       className={
-        focused
-          ? "rounded-2xl bg-[#E0F7F8] px-3 py-1.5"
-          : "px-3 py-1.5"
+        focused ? "rounded-2xl bg-[#E0F7F8] px-3 py-1.5" : "px-3 py-1.5"
       }
     >
       <MaterialCommunityIcons name={name} size={22} color={color} />
@@ -26,7 +24,7 @@ function TabIcon({
 }
 
 export default function TabsLayout() {
-  const [homeTab, analysisTab, profileTab] = skinData.navigation.tabs;
+  const [homeTab, analysisTab] = skinData.navigation.tabs;
 
   return (
     <Tabs
@@ -50,7 +48,11 @@ export default function TabsLayout() {
           title: homeTab.label,
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
-              name={(focused ? homeTab.iconActive : homeTab.icon) as keyof typeof MaterialCommunityIcons.glyphMap}
+              name={
+                (focused
+                  ? homeTab.iconActive
+                  : homeTab.icon) as keyof typeof MaterialCommunityIcons.glyphMap
+              }
               color={color}
               focused={focused}
             />
@@ -67,23 +69,6 @@ export default function TabsLayout() {
                 (focused
                   ? analysisTab.iconActive
                   : analysisTab.icon) as keyof typeof MaterialCommunityIcons.glyphMap
-              }
-              color={color}
-              focused={focused}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: profileTab.label,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              name={
-                (focused
-                  ? profileTab.iconActive
-                  : profileTab.icon) as keyof typeof MaterialCommunityIcons.glyphMap
               }
               color={color}
               focused={focused}

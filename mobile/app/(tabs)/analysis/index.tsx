@@ -1,59 +1,91 @@
 import { useState } from "react";
 import { useRouter } from "expo-router";
-import { ScrollView, Text, View, Image } from "react-native";
+import { ActivityIndicator, Alert, Image, ScrollView, Text, View } from "react-native";
 import { CaptureCard } from "../../../components/CaptureCard";
-import { InfoCard } from "../../../components/InfoCard";
-import { StatusCard } from "../../../components/StatusCard";
 import { skinData } from "../../../lib/skinData";
 import * as ImagePicker from "expo-image-picker";
-import { useFetch } from "../../../hooks/useFetch";
 import { apiRequest } from "../../../services/api";
 
 export default function AnalysisScreen() {
   const router = useRouter();
-  const { app, user, analysisCapture: a } = skinData;
+  const { analysisCapture: a } = skinData;
   const [image, setImage] = useState<string | null>(null);
+  const [analyzing, setAnalyzing] = useState(false);
   const heroPlain = a.heroTitle.replace(a.heroAccent, "").trim();
+
   const sendImageToServer = async (imageFile: string) => {
     const formData = new FormData();
-    formData.append('file', {
+    formData.append("file", {
       uri: imageFile,
-      name: 'photo.jpg',
-      type: 'image/jpeg'
+      name: "photo.jpg",
+      type: "image/jpeg",
     } as any);
-   const result = await apiRequest("analysis/upload", "POST", formData,"formData");
-   console.log("Upload result:", result);
-  }
+
+    setAnalyzing(true);
+    try {
+      const result = await apiRequest("analysis/upload", "POST", formData, "formData");
+      if (result && result.statusCode === 200) {
+        router.push({
+          pathname: "/(tabs)/analysis/report",
+          params: { analysisId: result.id },
+        });
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Something went wrong.";
+      Alert.alert("Analysis Failed", message);
+    } finally {
+      setAnalyzing(false);
+    }
+  };
+
   const uploadPhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images"],
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
-    if (!result.canceled) {
+    if (!result.canceled && result.assets) {
       setImage(result.assets[0].uri);
+      await sendImageToServer(result.assets[0].uri);
     }
-    if (result && result.assets) {
-      await sendImageToServer(result.assets[0]?.uri);
-    }
-  }
+  };
+
   const takePhoto = async () => {
-    let result = await ImagePicker.requestCameraPermissionsAsync();
-    if (result.granted) {
-      let res = await ImagePicker.launchCameraAsync({
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
-      if (!res.canceled) {
-        setImage(res.assets[0].uri);
-      }
-      if (res && res.assets) {
-        await sendImageToServer(res.assets[0]?.uri);
-      }
+    const perm = await ImagePicker.requestCameraPermissionsAsync();
+    if (!perm.granted) return;
+    const result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.canceled && result.assets) {
+      setImage(result.assets[0].uri);
+      await sendImageToServer(result.assets[0].uri);
     }
+  };
+
+  if (analyzing) {
+    return (
+      <View className="flex-1 items-center justify-center bg-[#F8FAFC] px-8">
+        {image && (
+          <Image
+            source={{ uri: image }}
+            className="mb-8 h-44 w-44 rounded-3xl"
+            resizeMode="cover"
+          />
+        )}
+        <ActivityIndicator size="large" color="#00797C" />
+        <Text className="mt-5 text-center text-lg font-bold text-slate-900">
+          {a.analyzing.title}
+        </Text>
+        <Text className="mt-2 text-center text-sm leading-6 text-slate-500">
+          {a.analyzing.description}
+        </Text>
+      </View>
+    );
   }
+
   return (
     <View className="flex-1 bg-[#F8FAFC]">
       <ScrollView
@@ -79,34 +111,6 @@ export default function AnalysisScreen() {
           onGalleryPress={uploadPhoto}
           onShutterPress={takePhoto}
         />
-        {/*}
-        <View className="mt-5 flex-row gap-3">
-          <InfoCard
-            icon="white-balance-sunny"
-            title={a.optimalLight.title}
-            description={a.optimalLight.description}
-            variant="teal"
-          />
-          <InfoCard
-            icon="history"
-            title={a.lastSession.title}
-            description={a.lastSession.description}
-            variant="blue"
-          />
-        </View>
-        */}
-        {image && (
-          <View className="mt-5">
-            <Image source={{ uri: image }} className="h-64 w-full rounded-2xl object-cover" />
-            <StatusCard
-              title={a.analyzing.title}
-              description={a.analyzing.description}
-              ctaLabel={a.analyzing.ctaLabel}
-              onCtaPress={() => router.push("/(tabs)/analysis/report")}
-            />
-          </View>
-        )
-        }
       </ScrollView>
     </View>
   );

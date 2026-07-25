@@ -10,7 +10,6 @@
     "tabs": [
       { "id": "home", "label": "Home", "icon": "home-outline", "iconActive": "home" },
       { "id": "analysis", "label": "Analysis", "icon": "camera-outline", "iconActive": "camera" },
-      { "id": "profile", "label": "Profile", "icon": "account-outline", "iconActive": "account" }
     ]
   },
   "analysisCapture": {
@@ -204,13 +203,4 @@
       "ctaLabel": "Find a Doctor"
     }
   },
-  "profile": {
-    "headline": "Your profile",
-    "subtext": "Manage preferences, reminders, and connected devices.",
-    "rows": [
-      { "id": "r1", "title": "Scan history", "icon": "history" },
-      { "id": "r2", "title": "Notifications", "icon": "bell-outline" },
-      { "id": "r3", "title": "Privacy", "icon": "lock-outline" }
-    ]
-  }
 }

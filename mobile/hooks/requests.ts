@@ -12,18 +12,16 @@ export function useFetch(endpoint: string) {
       setError(null);
       try {
         const result = await apiRequest(endpoint, "GET");
+        console.log("Fetched data:", result);
         setData(result);
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err));
       } finally {
         setLoading(false);
       }
-    }
+    };
     fetchData();
-  }
-    , [endpoint]);
+  }, [endpoint]);
 
   return { data, loading, error };
 }
-
-

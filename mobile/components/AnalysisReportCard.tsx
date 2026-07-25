@@ -3,9 +3,7 @@ import { Text, View } from "react-native";
 import type { ReportTag } from "../../types/data";
 import { DonutScore } from "./DonutScore";
 
-function tagIcon(
-  name: string,
-): keyof typeof MaterialCommunityIcons.glyphMap {
+function tagIcon(name: string): keyof typeof MaterialCommunityIcons.glyphMap {
   const map: Record<string, keyof typeof MaterialCommunityIcons.glyphMap> = {
     "grid-large": "grid-large",
     "alert-circle-outline": "alert-circle-outline",
@@ -14,7 +12,6 @@ function tagIcon(
 }
 
 type AnalysisReportCardProps = {
-  label: string;
   headline: string;
   summary: string;
   scorePercent: number;
@@ -23,7 +20,6 @@ type AnalysisReportCardProps = {
 };
 
 export function AnalysisReportCard({
-  label,
   headline,
   summary,
   scorePercent,
@@ -33,7 +29,7 @@ export function AnalysisReportCard({
   return (
     <View className="rounded-3xl bg-slate-100 p-5">
       <Text className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-        {label}
+        "Analysis Report"
       </Text>
       <Text className="mt-2 text-xl font-bold leading-7 text-teal-dark">
         {headline}
@@ -46,7 +42,11 @@ export function AnalysisReportCard({
             key={t.id}
             className="flex-row items-center gap-1.5 rounded-full bg-teal-dark px-3 py-1.5"
           >
-            <MaterialCommunityIcons name={tagIcon(t.icon)} size={16} color="#fff" />
+            <MaterialCommunityIcons
+              name={tagIcon(t.icon)}
+              size={16}
+              color="#fff"
+            />
             <Text className="text-xs font-semibold text-white">{t.label}</Text>
           </View>
         ))}

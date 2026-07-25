@@ -34,10 +34,20 @@ export interface ReportProduct {
   ctaLabel: string;
 }
 
+export interface BackendProduct {
+  name: string;
+  brand: string;
+  price: number;
+  country_of_origin: string;
+  key_ingredients: string[];
+  benefits: string;
+  description: string;
+}
+
 export interface ReportTag {
   id: string;
   label: string;
-  icon: string;
+  icon?: string;
 }
 
 export interface FilterChip {
@@ -127,10 +137,5 @@ export interface SkinData {
       description: string;
       ctaLabel: string;
     };
-  };
-  profile: {
-    headline: string;
-    subtext: string;
-    rows: { id: string; title: string; icon: string }[];
   };
 }

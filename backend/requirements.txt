@@ -1,0 +1,15 @@
+pydantic
+fastapi
+sqlalchemy
+google-generativeai
+python-dotenv
+uvicorn
+mediapipe
+opencv-python
+pillow
+numpy
+torch
+torchvision
+pandas
+scikit-learn
+kaggle

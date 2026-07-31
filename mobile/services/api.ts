@@ -12,15 +12,17 @@ export async function apiRequest(
     `${type} Making API request to: ${url} with method: ${method} and data:`,
     data,
   );
+  const isFormData = type === "formData";
   const options: RequestInit = {
     method,
     headers: {
       accept: "application/json",
+      ...(data !== undefined && !isFormData ? { "Content-Type": "application/json" } : {}),
     },
   };
-  if (type == "formData") {
+  if (isFormData) {
     options.body = data;
-  } else {
+  } else if (data !== undefined) {
     options.body = JSON.stringify(data);
   }
   try {

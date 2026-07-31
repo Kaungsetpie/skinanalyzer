@@ -1,0 +1,66 @@
+{
+  "skin_type": {
+    "oily": {
+      "headline": "Oily Skin",
+      "description": "Your skin produces excess sebum, giving it a shiny appearance with enlarged pores.",
+      "tip": "Use oil-free, non-comedogenic products and gentle foaming cleansers.",
+      "icon": "water"
+    },
+    "normal": {
+      "headline": "Normal Skin",
+      "description": "Well-balanced skin with minimal oiliness, dryness, or sensitivity.",
+      "tip": "Maintain balance with a simple hydrating routine and daily SPF.",
+      "icon": "emoticon-happy-outline"
+    },
+    "dry": {
+      "headline": "Dry Skin",
+      "description": "Your skin lacks sufficient moisture, leading to tightness and a dull complexion.",
+      "tip": "Prioritise rich moisturisers, gentle cleansers, and hyaluronic acid serums.",
+      "icon": "leaf-off"
+    }
+  },
+  "acne_type": {
+    "no_acne": {
+      "headline": "Clear Skin",
+      "description": "No active acne detected — your skin appears blemish-free.",
+      "tip": "Keep up your current routine and focus on prevention.",
+      "icon": "check-circle-outline"
+    },
+    "comedonal_acne": {
+      "headline": "Comedonal Acne",
+      "description": "Blackheads and whiteheads detected, caused by clogged pores.",
+      "tip": "Salicylic acid and gentle exfoliation help keep pores clear.",
+      "icon": "dots-circle"
+    },
+    "inflammatory_acne": {
+      "headline": "Inflammatory Acne",
+      "description": "Active papules or pustules detected, indicating inflamed breakouts.",
+      "tip": "Benzoyl peroxide and niacinamide calm inflammation and reduce bacteria.",
+      "icon": "alert-circle-outline"
+    }
+  },
+  "hyperpigmentation": {
+    "headline": "Hyperpigmentation",
+    "description": "Uneven skin tone or dark spots caused by excess melanin production.",
+    "tip": "Vitamin C, niacinamide, and consistent SPF use are key to fading dark spots.",
+    "icon": "palette-outline"
+  },
+  "sensitive": {
+    "headline": "Sensitive Skin",
+    "description": "Signs of diffuse redness detected, suggesting skin reactivity or irritation.",
+    "tip": "Choose fragrance-free, hypoallergenic formulas and patch-test new products.",
+    "icon": "thermometer"
+  },
+  "combination": {
+    "headline": "Combination Skin",
+    "description": "An oily T-zone (forehead, nose, chin) with relatively drier cheeks.",
+    "tip": "Use lightweight balancing products and consider zone-specific treatments.",
+    "icon": "approximately-equal"
+  },
+  "severe": {
+    "headline": "Consult a Dermatologist",
+    "description": "A potentially serious skin condition was detected that requires professional evaluation.",
+    "tip": "Please book an appointment with a certified dermatologist as soon as possible.",
+    "icon": "hospital-box-outline"
+  }
+}

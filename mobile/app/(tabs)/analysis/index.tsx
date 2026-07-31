@@ -24,10 +24,13 @@ export default function AnalysisScreen() {
     setAnalyzing(true);
     try {
       const result = await apiRequest("analysis/upload", "POST", formData, "formData");
-      if (result && result.statusCode === 200) {
+      if (result?.analysisId) {
         router.push({
-          pathname: "/(tabs)/analysis/report",
-          params: { analysisId: result.id },
+          pathname: "/(tabs)/analysis/conditions",
+          params: {
+            analysisId: result.analysisId,
+            conditions: JSON.stringify(result.conditions),
+          },
         });
       }
     } catch (error) {

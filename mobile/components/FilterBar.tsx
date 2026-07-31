@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { FilterChip } from "../../types/data";
+import type { FilterChip } from "../types/data";
 
 type PickerKind = "price" | "origin" | null;
 
@@ -162,15 +162,17 @@ export function FilterBar({
         </View>
       </Modal>
 
-      <View className="flex-row items-center justify-between rounded-2xl bg-white px-3 py-2">
-        <Text className="text-sm font-medium text-slate-800">{veganLabel}</Text>
-        <Switch
-          value={veganOn}
-          onValueChange={onVeganChange}
-          trackColor={{ false: "#cbd5e1", true: "#99f6e4" }}
-          thumbColor={veganOn ? "#00797C" : "#f4f4f5"}
-        />
-      </View>
+      {!!veganLabel && (
+        <View className="flex-row items-center justify-between rounded-2xl bg-white px-3 py-2">
+          <Text className="text-sm font-medium text-slate-800">{veganLabel}</Text>
+          <Switch
+            value={veganOn}
+            onValueChange={onVeganChange}
+            trackColor={{ false: "#cbd5e1", true: "#99f6e4" }}
+            thumbColor={veganOn ? "#00797C" : "#f4f4f5"}
+          />
+        </View>
+      )}
 
       <Text className="text-xs font-semibold text-slate-500">
         {matchedCount} Results Matched

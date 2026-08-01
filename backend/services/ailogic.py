@@ -14,7 +14,8 @@ from services.hyperpigmentation_classifier import classify_hyperpigmentation
 from services.preprocessor import detect_combination_skin
 
 load_dotenv()
-_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+_gemini_api_key = os.getenv("GEMINI_API_KEY")
+_gemini_client = genai.Client(api_key=_gemini_api_key) if _gemini_api_key else None
 
 
 # ---------------------------------------------------------------------------
@@ -113,13 +114,17 @@ _GEMINI_MODELS = [
 ]
 
 async def _call_gemini(prompt: str) -> SkincareRecommendation | None:
+    if _gemini_client is None:
+        print("GEMINI_API_KEY is not configured — using classifier-only recommendations.")
+        return None
+
     config = types.GenerateContentConfig(
         response_mime_type="application/json",
         response_schema=SkincareRecommendation,
     )
     for model in _GEMINI_MODELS:
         try:
-            response = await _client.aio.models.generate_content(
+            response = await _gemini_client.aio.models.generate_content(
                 model=model, contents=prompt, config=config,
             )
             print(f"Gemini response from model: {model}")

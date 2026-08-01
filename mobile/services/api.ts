@@ -1,5 +1,4 @@
-const baseUrl = "http://localhost:8000";
-//const baseUrl = "http://192.168.1.157:8000";
+const baseUrl = "http://192.168.100.29:8000";
 
 export async function apiRequest(
   endpoint: string,

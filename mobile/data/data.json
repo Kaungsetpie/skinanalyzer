@@ -9,7 +9,7 @@
   "navigation": {
     "tabs": [
       { "id": "home", "label": "Home", "icon": "home-outline", "iconActive": "home" },
-      { "id": "analysis", "label": "Analysis", "icon": "camera-outline", "iconActive": "camera" },
+      { "id": "analysis", "label": "Analysis", "icon": "camera-outline", "iconActive": "camera" }
     ]
   },
   "analysisCapture": {
@@ -202,5 +202,5 @@
       "description": "Insights are generated from your scan and general dermatology literature. If irritation, pain, or sudden changes persist, please consult a licensed dermatologist.",
       "ctaLabel": "Find a Doctor"
     }
-  },
+  }
 }

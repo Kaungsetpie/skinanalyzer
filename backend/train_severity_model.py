@@ -39,10 +39,10 @@ MODEL_SAVE_PATH = os.path.join('models', 'severity_model.keras')
 _IMG_EXTS = {'.jpg', '.jpeg', '.png', '.bmp', '.webp'}
 
 _GRADE_FOLDERS = {
-    0: ['Grade_0', 'grade0', 'grade_0', '0', 'clear'],
-    1: ['Grade_1', 'grade1', 'grade_1', '1', 'mild'],
-    2: ['Grade_2', 'grade2', 'grade_2', '2', 'moderate'],
-    3: ['Grade_3', 'grade3', 'grade_3', '3', 'severe'],
+    0: ['Grade_0', 'grade0', 'grade_0', '0', 'clear', 'acne0_1024'],
+    1: ['Grade_1', 'grade1', 'grade_1', '1', 'mild', 'acne1_1024'],
+    2: ['Grade_2', 'grade2', 'grade_2', '2', 'moderate', 'acne2_1024'],
+    3: ['Grade_3', 'grade3', 'grade_3', '3', 'severe', 'acne3_1024'],
 }
 _GRADE_TXT = {
     0: ['Grade_0.txt', 'grade0.txt'],
@@ -190,7 +190,7 @@ def train(positive_dir: str | None, negative_dir: str | None, data_dir: str | No
     for layer in base_layer.layers[:-12]:
         layer.trainable = False
 
-    model.compile(optimizer=tf.keras.optimizers.Adam(5e-6),
+    model.compile(optimizer=tf.keras.optimizers.Adam(1e-4),
                   loss='binary_crossentropy', metrics=['accuracy'])
     model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS_FINE,
               class_weight=class_weight_dict,

@@ -41,7 +41,7 @@ _IMG_EXTS = {'.jpg', '.jpeg', '.png', '.bmp', '.webp'}
 
 _CLASS_FOLDER_NAMES = {
     'oily':   ['oily', 'Oily', 'OILY'],
-    'normal': ['normal', 'Normal', 'NORMAL', 'combination', 'Combination'],
+    'normal': ['normal', 'Normal', 'NORMAL'],
     'dry':    ['dry', 'Dry', 'DRY'],
 }
 
@@ -176,8 +176,8 @@ def train(data_dir: str) -> None:
         epochs=EPOCHS_HEAD,
         class_weight=class_weight_dict,
         callbacks=[
-            EarlyStopping(monitor='val_accuracy', patience=6, restore_best_weights=True),
-            ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
+            #EarlyStopping(monitor='val_accuracy', patience=6, restore_best_weights=True),
+           # ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
             ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True),
         ],
     )
@@ -193,7 +193,7 @@ def train(data_dir: str) -> None:
         layer.trainable = False
 
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(5e-6),
+        optimizer=tf.keras.optimizers.Adam(3e-5),
         loss='categorical_crossentropy',
         metrics=['accuracy'],
     )
@@ -203,8 +203,8 @@ def train(data_dir: str) -> None:
         class_weight=class_weight_dict,
         callbacks=[
             EarlyStopping(monitor='val_accuracy', patience=6, restore_best_weights=True),
-            ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
-            ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True),
+           # ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
+            #ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True),
         ],
     )
 

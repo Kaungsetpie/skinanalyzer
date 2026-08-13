@@ -44,14 +44,6 @@ LIPS = [
 
 EXCLUDED_REGIONS = [LEFT_EYE, RIGHT_EYE, LIPS]
 
-# T-zone (forehead) vs cheek sub-regions, used only for the combination-skin
-# oiliness heuristic below — not part of the main face crop.
-FOREHEAD = [10, 67, 103, 109, 151, 337, 299, 296, 284]
-
-LEFT_CHEEK = [50, 101, 118, 117, 111, 35, 31, 228, 229, 230, 231, 232, 233, 244, 189]
-
-RIGHT_CHEEK = [280, 330, 347, 346, 340, 265, 261, 448, 449, 450, 451, 452, 453, 464, 413]
-
 
 # -----------------------------
 # Polygon helpers
@@ -62,23 +54,6 @@ def _landmarks_to_points(landmarks, indexes, w, h):
         [(int(landmarks[i].x * w), int(landmarks[i].y * h)) for i in indexes],
         np.int32
     )
-
-
-def _crop_polygon(image, landmarks, indexes):
-    h, w, _ = image.shape
-
-    pts = _landmarks_to_points(landmarks, indexes, w, h)
-
-    mask = np.zeros((h, w), dtype=np.uint8)
-    cv2.fillPoly(mask, [pts], 255)
-
-    roi = cv2.bitwise_and(image, image, mask=mask)
-
-    x, y, w_box, h_box = cv2.boundingRect(pts)
-    roi = roi[y:y + h_box, x:x + w_box]
-
-    return roi
-
 
 def crop_face_region(image, landmarks):
     h, w, _ = image.shape
@@ -110,44 +85,6 @@ def _detect_landmarks(img):
         return None
 
     return result.face_landmarks[0]
-
-
-def _shine_ratio(region_bgr):
-    """Fraction of pixels that look like specular oil highlights (bright, desaturated)."""
-    total = region_bgr.shape[0] * region_bgr.shape[1]
-    if total == 0:
-        return 0.0
-
-    hsv = cv2.cvtColor(region_bgr, cv2.COLOR_BGR2HSV)
-    _, s, v = cv2.split(hsv)
-    shine_mask = (v > 200) & (s < 60)
-
-    return float(np.count_nonzero(shine_mask)) / total
-
-
-# -----------------------------
-# Combination-skin heuristic (T-zone vs cheeks)
-# -----------------------------
-
-def detect_combination_skin(img, threshold=0.05):
-    """
-    Compares oiliness (specular shine) between the T-zone (forehead) and the
-    cheeks. Returns (is_combination, {"t_zone_shine": .., "cheek_shine": ..}).
-    """
-    landmarks = _detect_landmarks(img)
-    if landmarks is None:
-        return False, {}
-
-    forehead = _crop_polygon(img, landmarks, FOREHEAD)
-    left_cheek = _crop_polygon(img, landmarks, LEFT_CHEEK)
-    right_cheek = _crop_polygon(img, landmarks, RIGHT_CHEEK)
-
-    t_zone_shine = _shine_ratio(forehead)
-    cheek_shine = (_shine_ratio(left_cheek) + _shine_ratio(right_cheek)) / 2
-
-    is_combination = (t_zone_shine - cheek_shine) > threshold
-
-    return is_combination, {"t_zone_shine": t_zone_shine, "cheek_shine": cheek_shine}
 
 
 # -----------------------------

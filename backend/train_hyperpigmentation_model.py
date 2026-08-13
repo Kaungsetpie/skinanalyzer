@@ -7,7 +7,7 @@ Pixels normalized to [0, 1].
   Negatives: normal skin images from data/skin_type/
 
 --- Usage ---
-  python train_hyperpigmentation_model.py --data-dir data/melasma --normal-dir data/skin_type
+  python train_hyperpigmentation_model.py --data-dir data/hyperpigmentation --normal-dir data/skin_type
 
 Saves:  models/hyperpigmentation_model.keras
 """
@@ -134,7 +134,7 @@ def train(data_dir: str, normal_dir: str | None) -> None:
     for layer in base_layer.layers[:-12]:
         layer.trainable = False
 
-    model.compile(optimizer=tf.keras.optimizers.Adam(5e-6),
+    model.compile(optimizer=tf.keras.optimizers.Adam(1e-4),
                   loss='binary_crossentropy', metrics=['accuracy'])
     model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS_FINE,
               class_weight=class_weight_dict,

@@ -1,14 +1,10 @@
 """
 Train MobileNetV2 acne-type classifier using TensorFlow/Keras.
-Classes: no_acne (Grade 0), comedonal_acne (Grade 1), inflammatory_acne (Grades 2 & 3).
-Pixels normalized to [0, 1].
+Classes: comedonal_acne (acne0 / Grade 0), inflammatory_acne (acne1 / Grade 1).
+MobileNetV2 standard preprocessing [-1, 1].
 
---- Dataset ---
-  kaggle datasets download -d rutviklathiya/acne04-dataset  (or search for ACNE04)
-  Unzip so structure is: data/ACNE04/Grade_0/, Grade_1/, Grade_2/, Grade_3/
-
---- Usage ---
-  python train_acne_type_model.py --data-dir data/ACNE04
+Usage:
+  python train_acne_type_model.py --data-dir data/ACNE04/train
 
 Saves:  models/acne_type_model.keras
         models/acne_type_classes.json
@@ -24,6 +20,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.utils.class_weight import compute_class_weight
 from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.layers import Dense, Dropout, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
@@ -34,19 +31,20 @@ EPOCHS_HEAD       = 15
 EPOCHS_FINE       = 25
 MODEL_SAVE_PATH   = os.path.join('models', 'acne_type_model.keras')
 CLASSES_SAVE_PATH = os.path.join('models', 'acne_type_classes.json')
-CLASSES           = ['no_acne', 'comedonal_acne', 'inflammatory_acne']
+
+# Class 0: Comedonal Acne (acne0_1024), Class 1: Inflammatory Acne (acne1_1024)
+CLASSES           = ['comedonal_acne', 'inflammatory_acne']
 
 _IMG_EXTS = {'.jpg', '.jpeg', '.png', '.bmp', '.webp'}
 
+# Folder Mapping အသစ် (acne0 & acne1 သီးသန့်)
 _GRADE_TO_CLASS = {
-    'Grade_0': 'no_acne',
-    'Grade_1': 'comedonal_acne',
-    'Grade_2': 'inflammatory_acne',
-    'Grade_3': 'inflammatory_acne',
-    'acne0':   'no_acne',
-    'acne1':   'comedonal_acne',
-    'acne2':   'inflammatory_acne',
-    'acne3':   'inflammatory_acne',
+    'acne0_1024': 'comedonal_acne',
+    'acne1_1024': 'inflammatory_acne',
+    'Grade_0':    'comedonal_acne',
+    'Grade_1':    'inflammatory_acne',
+    'acne0':      'comedonal_acne',
+    'acne1':      'inflammatory_acne',
 }
 
 
@@ -70,7 +68,7 @@ def load_paths_and_labels(data_dir: str):
             labels.append(class_name)
 
     if not paths:
-        raise FileNotFoundError(f"No images found in {data_dir}.")
+        raise FileNotFoundError(f"No valid acne0/acne1 images found in {data_dir}.")
 
     label_indices = [CLASSES.index(l) for l in labels]
     print(f"\nAcne-type dataset from {data_dir}")
@@ -87,14 +85,15 @@ def build_dataset(paths, labels, num_classes, augment=False):
         raw = tf.io.read_file(path)
         img = tf.image.decode_image(raw, channels=3, expand_animations=False)
         img = tf.image.resize(img, [IMG_SIZE, IMG_SIZE])
-        img = tf.cast(img, tf.float32) / 255.0
+        img = tf.cast(img, tf.float32)
+        # ✅ MobileNetV2 Preprocessing standard သို့ ပြောင်းလဲခြင်း
+        img = preprocess_input(img)
         return img, label
 
     def augment_fn(img, label):
         img = tf.image.random_flip_left_right(img)
-        img = tf.image.random_brightness(img, 0.3)
-        img = tf.image.random_contrast(img, 0.7, 1.3)
-        img = tf.clip_by_value(img, 0.0, 1.0)
+        img = tf.image.random_brightness(img, 0.2)
+        img = tf.image.random_contrast(img, 0.8, 1.2)
         return img, label
 
     ds = tf.data.Dataset.from_tensor_slices((tf.constant(paths), labels_oh))
@@ -114,7 +113,7 @@ def build_model(num_classes: int) -> Model:
     x = base(inputs, training=False)
     x = GlobalAveragePooling2D()(x)
     x = Dropout(0.4)(x)
-    x = Dense(256, activation='relu')(x)
+    x = Dense(128, activation='relu')(x)
     x = Dropout(0.2)(x)
     outputs = Dense(num_classes, activation='softmax')(x)
     return Model(inputs, outputs)
@@ -145,9 +144,9 @@ def train(data_dir: str) -> None:
     model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS_HEAD,
               class_weight=class_weight_dict,
               callbacks=[
-                  EarlyStopping(monitor='val_accuracy', patience=6, restore_best_weights=True),
-                  ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
-                  ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True),
+                 # EarlyStopping(monitor='val_loss', patience=6, restore_best_weights=True),
+                  #ReduceLROnPlateau(monitor='val_loss', factor=0.3, patience=3),
+                  ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_loss', save_best_only=True),
               ])
 
     print(f"\n{'='*60}\nPhase 2: Fine-tuning last 4 blocks\n{'='*60}")
@@ -156,14 +155,14 @@ def train(data_dir: str) -> None:
     for layer in base_layer.layers[:-12]:
         layer.trainable = False
 
-    model.compile(optimizer=tf.keras.optimizers.Adam(5e-6),
+    model.compile(optimizer=tf.keras.optimizers.Adam(3e-5),
                   loss='categorical_crossentropy', metrics=['accuracy'])
     model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS_FINE,
               class_weight=class_weight_dict,
               callbacks=[
-                  EarlyStopping(monitor='val_accuracy', patience=6, restore_best_weights=True),
-                  ReduceLROnPlateau(monitor='val_accuracy', factor=0.3, patience=3),
-                  ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_accuracy', save_best_only=True),
+                 # EarlyStopping(monitor='val_loss', patience=6, restore_best_weights=True),
+                #ReduceLROnPlateau(monitor='val_loss', factor=0.3, patience=3),
+                  ModelCheckpoint(MODEL_SAVE_PATH, monitor='val_loss', save_best_only=True),
               ])
 
     with open(CLASSES_SAVE_PATH, 'w') as f:
@@ -174,5 +173,5 @@ def train(data_dir: str) -> None:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train MobileNetV2 acne-type classifier (TF/Keras)')
-    parser.add_argument('--data-dir', required=True)
+    parser.add_argument('--data-dir', default='data/ACNE04/train')
     train(parser.parse_args().data_dir)

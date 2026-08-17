@@ -5,6 +5,7 @@ from PIL import Image
 
 try:
     import tensorflow as tf
+    from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
     _TF_AVAILABLE = True
 except ImportError:
     _TF_AVAILABLE = False
@@ -36,7 +37,7 @@ def _load_model():
 
 def _preprocess(pil_image: Image.Image) -> np.ndarray:
     img = pil_image.convert('RGB').resize((224, 224))
-    arr = np.array(img, dtype=np.float32) / 255.0
+    arr = preprocess_input(np.array(img, dtype=np.float32))
     return np.expand_dims(arr, axis=0)
 
 

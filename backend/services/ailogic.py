@@ -97,29 +97,88 @@ def _get_local_fallback_products(conditions: dict, budget: float, filepath: str 
 def classify_conditions(mp_img: Image.Image, raw_img: np.ndarray | None = None) -> dict:
     is_severe, severity_score = classify_severity(mp_img)
     
-    # 1. Severe ဖြစ်ရင် တန်း return ပြန်မည်
+    # 1. Severe threshold check
     if is_severe:
         return {
             "is_severe": True, 
             "severity_score": round(float(severity_score), 3)
         }
 
-    skin_type, type_scores = classify_skin_type(mp_img)
-    has_hyper, hyper_score = classify_hyperpigmentation(mp_img)
+    # Model predictions as baselines
+    skin_type, _ = classify_skin_type(mp_img)
+    has_hyper_flag, hyper_score = classify_hyperpigmentation(mp_img)
+    has_hyper = float(hyper_score) > 0.35
+    acne_type, _ = classify_acne_type(mp_img, has_hyperpigmentation=bool(has_hyper))
 
-    final_acne_type = None
+    # Landmark-based high-resolution physical feature refinement
+    if raw_img is not None:
+        try:
+            import cv2
+            from services.preprocessor import _detect_landmarks, FACE_OVAL, LEFT_EYE, RIGHT_EYE, LIPS
+            h, w, _ = raw_img.shape
+            gray = cv2.cvtColor(raw_img, cv2.COLOR_BGR2GRAY)
+            lab = cv2.cvtColor(raw_img, cv2.COLOR_BGR2LAB)
+            hsv = cv2.cvtColor(raw_img, cv2.COLOR_BGR2HSV)
 
-    # 2. severity_score က 0.08 ထက် ကြီးမှသာ (ဝက်ခြံ ရှိတယ်ဆိုမှ)
-    if severity_score >= 0.08:
-        acne_type, acne_scores = classify_acne_type(mp_img)
-        final_acne_type = str(acne_type) if acne_type else None
-    else:
-        final_acne_type = None
+            lms = _detect_landmarks(raw_img)
+            if lms:
+                def pt(idx): return int(lms[idx].x * w), int(lms[idx].y * h)
+                
+                # 1. Forehead Skin Polygon
+                fh_pts = np.array([pt(10), pt(338), pt(297), pt(336), pt(9), pt(107), pt(67), pt(109)], np.int32)
+                fh_mask = np.zeros((h, w), dtype=np.uint8)
+                cv2.fillPoly(fh_mask, [fh_pts], 255)
+                
+                fh_gray = gray[fh_mask > 0]
+                fh_v = hsv[:, :, 2][fh_mask > 0]
+                fh_s = hsv[:, :, 1][fh_mask > 0]
+                
+                # 2. Entire Facial Skin (excluding eyes and lips)
+                face_pts = np.array([pt(i) for i in FACE_OVAL], np.int32)
+                face_mask = np.zeros((h, w), dtype=np.uint8)
+                cv2.fillPoly(face_mask, [face_pts], 255)
+                for ex in [LEFT_EYE, RIGHT_EYE, LIPS]:
+                    ex_pts = np.array([pt(i) for i in ex], np.int32)
+                    cv2.fillPoly(face_mask, [ex_pts], 0)
+
+                # Specular Sebum Shine
+                specular_glint_pct = np.mean((fh_v > 205) & (fh_s < 60)) * 100 if fh_v.size else 0
+                fh_p95 = np.percentile(fh_gray, 95) if fh_gray.size else 128
+                fh_med = np.median(fh_gray) if fh_gray.size else 128
+                shine_ratio = fh_p95 / max(fh_med, 1.0)
+
+                # Erythema (Inflammatory Acne) across entire facial skin
+                a_chan = lab[:, :, 1]
+                skin_a = a_chan[face_mask > 0] if np.sum(face_mask) > 0 else a_chan
+                red_pct = np.mean(skin_a > 147) * 100
+
+                # Comedone Roughness (surface bumps excluding specular highlights)
+                non_glint_mask = (fh_mask > 0) & (hsv[:, :, 2] < 210)
+                non_glint_fh = gray[non_glint_mask]
+                fh_roughness = np.std(non_glint_fh) if non_glint_fh.size > 20 else 0
+
+                # Physical Rules Refinement
+                if specular_glint_pct > 3.0 or (shine_ratio > 1.28 and fh_p95 > 210):
+                    skin_type = 'oily'
+                elif shine_ratio < 1.12:
+                    skin_type = 'dry'
+                else:
+                    skin_type = 'normal'
+
+                if red_pct > 6.0:
+                    acne_type = 'inflammatory_acne'
+                elif (fh_roughness > 10.0 and specular_glint_pct < 2.0) or (fh_roughness > 4.0 and not has_hyper and specular_glint_pct < 1.0):
+                    acne_type = 'comedonal_acne'
+                else:
+                    acne_type = 'no_acne'
+
+        except Exception as e:
+            print(f"Refinement error: {e}")
 
     return {
         "is_severe": False,
-        "skin_type": str(skin_type) if skin_type is not None else None,
-        "acne_type": final_acne_type,
+        "skin_type": str(skin_type) if skin_type is not None else "normal",
+        "acne_type": str(acne_type) if acne_type is not None else "no_acne",
         "has_hyperpigmentation": bool(has_hyper),
         "is_sensitive": False,
     }

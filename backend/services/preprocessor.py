@@ -57,22 +57,21 @@ def _landmarks_to_points(landmarks, indexes, w, h):
 
 def crop_face_region(image, landmarks):
     h, w, _ = image.shape
-
     face_pts = _landmarks_to_points(landmarks, FACE_OVAL, w, h)
 
-    mask = np.zeros((h, w), dtype=np.uint8)
-    cv2.fillPoly(mask, [face_pts], 255)
-
-    for region in EXCLUDED_REGIONS:
-        pts = _landmarks_to_points(landmarks, region, w, h)
-        cv2.fillPoly(mask, [pts], 0)
-
-    roi = cv2.bitwise_and(image, image, mask=mask)
-
     x, y, w_box, h_box = cv2.boundingRect(face_pts)
-    roi = roi[y:y + h_box, x:x + w_box]
+    pad_x = int(w_box * 0.05)
+    pad_y = int(h_box * 0.05)
 
-    return roi
+    x1 = max(0, x - pad_x)
+    y1 = max(0, y - pad_y)
+    x2 = min(w, x + w_box + pad_x)
+    y2 = min(h, y + h_box + pad_y)
+
+    if x2 <= x1 or y2 <= y1:
+        return image
+
+    return image[y1:y2, x1:x2]
 
 
 def _detect_landmarks(img):

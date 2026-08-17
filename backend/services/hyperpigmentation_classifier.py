@@ -41,4 +41,4 @@ def classify_hyperpigmentation(pil_image: Image.Image) -> tuple[bool, float]:
     if model is None:
         return False, 0.0
     score = float(model.predict(_preprocess(pil_image), verbose=0)[0][0])
-    return score > 0.5, score
+    return score > 0.75, score

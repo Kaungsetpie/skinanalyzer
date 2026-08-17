@@ -57,7 +57,7 @@ configs = {
     "Skin Type Model": {
         "file": "skin_type_model.keras",
         "binary": False,
-        "folders": {0: f"{DATA_DIR}/skin_type/dry", 1: f"{DATA_DIR}/skin_type/normal", 2: f"{DATA_DIR}/skin_type/oily"}
+        "folders": {0: f"{DATA_DIR}/skin_type_preprocessed/oily", 1: f"{DATA_DIR}/skin_type_preprocessed/normal", 2: f"{DATA_DIR}/skin_type_preprocessed/dry"}
     },
     "Acne Type Model": {
         "file": "acne_type_model.keras",

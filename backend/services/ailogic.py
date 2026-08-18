@@ -156,22 +156,16 @@ def classify_conditions(mp_img: Image.Image, raw_img: np.ndarray | None = None) 
                     ex_pts = np.array([pt(i) for i in ex], np.int32)
                     cv2.fillPoly(face_mask, [ex_pts], 0)
 
-                # Erythema (Redness) across face
+                # Erythema Elevation: P95 - Mean
                 a_chan = lab[:, :, 1]
                 skin_a = a_chan[face_mask > 0] if np.sum(face_mask) > 0 else a_chan
-                red_pct = np.mean(skin_a > 148) * 100
-
-                # Comedone Roughness
-                non_glint_mask = (t_mask > 0) & (hsv[:, :, 2] < 210)
-                non_glint_fh = gray[non_glint_mask]
-                fh_roughness = np.std(non_glint_fh) if non_glint_fh.size > 20 else 0
+                a_p95 = np.percentile(skin_a, 95) if skin_a.size else 128
+                a_mean = np.mean(skin_a) if skin_a.size else 128
+                red_elevation = a_p95 - a_mean
 
                 # Distinguish Closed Comedones vs Inflammatory Acne
-                # If acne is detected or surface has high bump roughness:
-                if acne_type != 'no_acne' or fh_roughness > 10.0:
-                    if red_pct > 8.0:
-                        acne_type = 'inflammatory_acne'
-                    elif fh_roughness > 8.0 or red_pct < 4.0:
+                if acne_type != 'no_acne':
+                    if red_elevation < 4.0:
                         acne_type = 'comedonal_acne'
 
         except Exception as e:

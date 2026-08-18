@@ -105,10 +105,10 @@ def classify_conditions(mp_img: Image.Image, raw_img: np.ndarray | None = None) 
         }
 
     # Model predictions as baselines
-    skin_type, _ = classify_skin_type(mp_img)
+    skin_type, st_scores = classify_skin_type(mp_img)
     has_hyper_flag, hyper_score = classify_hyperpigmentation(mp_img)
     has_hyper = float(hyper_score) > 0.35
-    acne_type, _ = classify_acne_type(mp_img, has_hyperpigmentation=bool(has_hyper))
+    acne_type, acne_scores = classify_acne_type(mp_img, has_hyperpigmentation=bool(has_hyper))
 
     # Landmark-based high-resolution physical feature refinement
     if raw_img is not None:
@@ -124,15 +124,30 @@ def classify_conditions(mp_img: Image.Image, raw_img: np.ndarray | None = None) 
             if lms:
                 def pt(idx): return int(lms[idx].x * w), int(lms[idx].y * h)
                 
-                # 1. Forehead Skin Polygon
+                # 1. T-Zone (Forehead + Nasal bridge)
                 fh_pts = np.array([pt(10), pt(338), pt(297), pt(336), pt(9), pt(107), pt(67), pt(109)], np.int32)
-                fh_mask = np.zeros((h, w), dtype=np.uint8)
-                cv2.fillPoly(fh_mask, [fh_pts], 255)
+                nose_pts = np.array([pt(168), pt(197), pt(5), pt(4), pt(195), pt(6)], np.int32)
+                t_mask = np.zeros((h, w), dtype=np.uint8)
+                cv2.fillPoly(t_mask, [fh_pts, nose_pts], 255)
                 
-                fh_gray = gray[fh_mask > 0]
-                fh_v = hsv[:, :, 2][fh_mask > 0]
-                fh_s = hsv[:, :, 1][fh_mask > 0]
+                t_gray = gray[t_mask > 0]
+                t_v = hsv[:, :, 2][t_mask > 0]
+                t_s = hsv[:, :, 1][t_mask > 0]
                 
+                # Specular Sebum Shine
+                specular_glint_pct = np.mean((t_v > 200) & (t_s < 70)) * 100 if t_v.size else 0
+                t_p95 = np.percentile(t_gray, 95) if t_gray.size else 128
+                t_med = np.median(t_gray) if t_gray.size else 128
+                shine_ratio = t_p95 / max(t_med, 1.0)
+
+                # Skin Type Decision: Sebum Specularity + CNN
+                if specular_glint_pct > 2.5 or (shine_ratio > 1.24 and t_p95 > 200):
+                    skin_type = 'oily'
+                elif shine_ratio < 1.10:
+                    skin_type = 'dry'
+                else:
+                    skin_type = 'normal'
+
                 # 2. Entire Facial Skin (excluding eyes and lips)
                 face_pts = np.array([pt(i) for i in FACE_OVAL], np.int32)
                 face_mask = np.zeros((h, w), dtype=np.uint8)
@@ -141,36 +156,14 @@ def classify_conditions(mp_img: Image.Image, raw_img: np.ndarray | None = None) 
                     ex_pts = np.array([pt(i) for i in ex], np.int32)
                     cv2.fillPoly(face_mask, [ex_pts], 0)
 
-                # Specular Sebum Shine
-                specular_glint_pct = np.mean((fh_v > 205) & (fh_s < 60)) * 100 if fh_v.size else 0
-                fh_p95 = np.percentile(fh_gray, 95) if fh_gray.size else 128
-                fh_med = np.median(fh_gray) if fh_gray.size else 128
-                shine_ratio = fh_p95 / max(fh_med, 1.0)
-
-                # Erythema (Inflammatory Acne) across entire facial skin
-                a_chan = lab[:, :, 1]
-                skin_a = a_chan[face_mask > 0] if np.sum(face_mask) > 0 else a_chan
-                red_pct = np.mean(skin_a > 147) * 100
-
-                # Comedone Roughness (surface bumps excluding specular highlights)
-                non_glint_mask = (fh_mask > 0) & (hsv[:, :, 2] < 210)
+                # Comedone Roughness
+                non_glint_mask = (t_mask > 0) & (hsv[:, :, 2] < 210)
                 non_glint_fh = gray[non_glint_mask]
                 fh_roughness = np.std(non_glint_fh) if non_glint_fh.size > 20 else 0
 
-                # Physical Rules Refinement
-                if specular_glint_pct > 3.0 or (shine_ratio > 1.28 and fh_p95 > 210):
-                    skin_type = 'oily'
-                elif shine_ratio < 1.12:
-                    skin_type = 'dry'
-                else:
-                    skin_type = 'normal'
-
-                if red_pct > 6.0:
-                    acne_type = 'inflammatory_acne'
-                elif (fh_roughness > 10.0 and specular_glint_pct < 2.0) or (fh_roughness > 4.0 and not has_hyper and specular_glint_pct < 1.0):
-                    acne_type = 'comedonal_acne'
-                else:
-                    acne_type = 'no_acne'
+                # Physical landmark refinement handles specular gloss for skin type
+                # CNN is trusted for acne classification (trained with color & hue invariance)
+                pass
 
         except Exception as e:
             print(f"Refinement error: {e}")

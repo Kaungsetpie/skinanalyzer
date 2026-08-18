@@ -93,8 +93,10 @@ def train_single_model(data_dir: str, classes: list[str], save_model_path: str, 
 
         def aug(img, y):
             img = tf.image.random_flip_left_right(img)
-            img = tf.image.random_brightness(img, 0.10)
-            img = tf.image.random_contrast(img, 0.90, 1.10)
+            img = tf.image.random_brightness(img, 0.15)
+            img = tf.image.random_contrast(img, 0.85, 1.20)
+            img = tf.image.random_hue(img, 0.08)
+            img = tf.image.random_saturation(img, 0.80, 1.25)
             return img, y
 
         ds = tf.data.Dataset.from_tensor_slices((tf.constant(p_list), y_t)).map(load, num_parallel_calls=tf.data.AUTOTUNE)
@@ -170,34 +172,53 @@ def train_single_model(data_dir: str, classes: list[str], save_model_path: str, 
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Train Skinalyzer MobileNetV2 Models on Curated Datasets")
+    parser.add_argument("--model", choices=["all", "acne", "skin", "hyper", "severity"], default="all",
+                        help="Which model to train (default: all)")
+    args = parser.parse_args()
+
     os.makedirs('models', exist_ok=True)
     
     # 1. Acne Model
-    train_single_model(
-        data_dir='data/golden/acne',
-        classes=['no_acne', 'comedonal_acne', 'inflammatory_acne'],
-        save_model_path='models/acne_type_model.keras',
-        save_classes_path='models/acne_type_classes.json',
-        is_binary=False
-    )
+    if args.model in ["all", "acne"]:
+        train_single_model(
+            data_dir='data/golden/acne',
+            classes=['no_acne', 'comedonal_acne', 'inflammatory_acne'],
+            save_model_path='models/acne_type_model.keras',
+            save_classes_path='models/acne_type_classes.json',
+            is_binary=False
+        )
 
     # 2. Skin Type Model
-    train_single_model(
-        data_dir='data/golden/skin_type',
-        classes=['oily', 'normal', 'dry'],
-        save_model_path='models/skin_type_model.keras',
-        save_classes_path='models/skin_type_classes.json',
-        is_binary=False
-    )
+    if args.model in ["all", "skin"]:
+        train_single_model(
+            data_dir='data/golden/skin_type',
+            classes=['oily', 'normal', 'dry'],
+            save_model_path='models/skin_type_model.keras',
+            save_classes_path='models/skin_type_classes.json',
+            is_binary=False
+        )
 
     # 3. Hyperpigmentation Model
-    train_single_model(
-        data_dir='data/golden/hyperpigmentation',
-        classes=['negative', 'positive'],
-        save_model_path='models/hyperpigmentation_model.keras',
-        save_classes_path=None,
-        is_binary=True
-    )
+    if args.model in ["all", "hyper"]:
+        train_single_model(
+            data_dir='data/golden/hyperpigmentation',
+            classes=['negative', 'positive'],
+            save_model_path='models/hyperpigmentation_model.keras',
+            save_classes_path=None,
+            is_binary=True
+        )
+
+    # 4. Severity Model
+    if args.model in ["all", "severity"]:
+        train_single_model(
+            data_dir='data/golden/severity',
+            classes=['negative', 'positive'],
+            save_model_path='models/severity_model.keras',
+            save_classes_path=None,
+            is_binary=True
+        )
 
 if __name__ == '__main__':
     main()

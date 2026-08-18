@@ -44,11 +44,26 @@ def _preprocess(pil_image: Image.Image) -> np.ndarray:
 
 
 def classify_acne_type(pil_image: Image.Image, has_hyperpigmentation: bool = False) -> tuple[str | None, dict[str, float]]:
-    """Returns (predicted_class, {class: confidence}). Returns (None, {}) if model not loaded."""
+    """
+    Returns (predicted_class, {class: confidence}).
+    Uses clinical hierarchical resolution:
+      1. Evaluates Total Acne Probability: P(inflammatory) + P(comedonal) vs P(no_acne)
+      2. If Total Acne > P(no_acne), selects the dominant acne subtype.
+    """
     model, classes = _load_model()
     if model is None:
         return None, {}
     probs = model.predict(_preprocess(pil_image), verbose=0)[0]
     scores = {cls: float(p) for cls, p in zip(classes, probs)}
-    predicted = classes[int(np.argmax(probs))]
+
+    p_no = scores.get('no_acne', 0.0)
+    p_inf = scores.get('inflammatory_acne', 0.0)
+    p_com = scores.get('comedonal_acne', 0.0)
+    total_acne = p_inf + p_com
+
+    if total_acne > p_no:
+        predicted = 'inflammatory_acne' if p_inf >= p_com else 'comedonal_acne'
+    else:
+        predicted = 'no_acne'
+
     return predicted, scores

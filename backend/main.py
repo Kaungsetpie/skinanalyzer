@@ -47,6 +47,13 @@ async def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db
 
     try:
         conditions = classify_conditions(cropped_face, img_np)
+        print("="*60)
+        print(" 🧪 LIVE DIAGNOSTIC ANALYSIS RESULT:")
+        print(f"    • Severity           : {conditions.get('is_severe')} (Score: {conditions.get('severity_score', 0)})")
+        print(f"    • Skin Type          : {conditions.get('skin_type')}")
+        print(f"    • Acne Condition     : {conditions.get('acne_type')}")
+        print(f"    • Hyperpigmentation  : {conditions.get('has_hyperpigmentation')}")
+        print("="*60)
 
         analysis_id = str(uuid.uuid4())
         new_analysis = AnalysisResult(
